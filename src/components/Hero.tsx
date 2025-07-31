@@ -141,7 +141,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 lg:pt-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-12 lg:pt-16"
           >
             <motion.a
               href="#works"
@@ -149,13 +149,52 @@ const Hero = () => {
                 e.preventDefault();
                 scrollToWorks();
               }}
-              className="inline-flex items-center px-10 py-4 font-accent font-medium text-sm tracking-wider uppercase rounded-none transition-colors duration-300 hover:opacity-80"
-              style={{ backgroundColor: 'var(--color-black)', color: 'var(--color-white)' }}
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center px-12 py-5 font-accent font-bold text-sm tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl"
+              style={{ 
+                background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)',
+                color: 'white'
+              }}
+              whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Works
+              {/* 背景グロー効果 */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 1) 100%)',
+                  filter: 'blur(4px)'
+                }}
+              />
+              
+              {/* シマー効果 */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(45deg, transparent 30%, white 50%, transparent 70%)',
+                  backgroundSize: '200% 200%'
+                }}
+                animate={{
+                  backgroundPosition: ['0% 0%', '200% 200%']
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }}
+              />
+              
+              <span className="relative z-10 flex items-center gap-2">
+                View Works
+                <motion.span
+                  className="text-lg"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  →
+                </motion.span>
+              </span>
             </motion.a>
+            
             <motion.a
               href="#contact"
               onClick={(e) => {
@@ -168,12 +207,53 @@ const Hero = () => {
                   });
                 }
               }}
-              className="inline-flex items-center px-10 py-4 border font-accent font-medium text-sm tracking-wider uppercase rounded-none transition-colors duration-300 hover:opacity-80"
-              style={{ borderColor: 'var(--color-black)', color: 'var(--color-black)' }}
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center px-12 py-5 font-accent font-bold text-sm tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group border-2 hover:border-accent hover:text-white shadow-lg hover:shadow-2xl"
+              style={{ 
+                backgroundColor: 'transparent',
+                borderColor: 'var(--color-gray-darker)',
+                color: 'var(--color-gray-darker)'
+              }}
+              whileHover={{ 
+                scale: 1.08, 
+                y: -2,
+                backgroundColor: 'var(--color-accent)',
+                borderColor: 'var(--color-accent)'
+              }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact
+              {/* ホバー背景エフェクト */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
+                style={{
+                  background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.9) 100%)'
+                }}
+              />
+              
+              {/* パルス効果 */}
+              <motion.div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0, 0.2, 0]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              <span className="relative z-10 flex items-center gap-2">
+                Contact
+                <motion.span
+                  className="text-lg"
+                  animate={{ rotate: [0, 15, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  ✉
+                </motion.span>
+              </span>
             </motion.a>
           </motion.div>
         </div>

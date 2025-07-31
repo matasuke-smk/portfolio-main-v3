@@ -48,7 +48,7 @@ const Service = () => {
           <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
             SERVICE & PRICE
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-gray-dark)' }}>
+          <p className="text-lg max-w-2xl mx-auto text-center" style={{ color: 'var(--color-gray-dark)' }}>
             お客様のニーズに合わせた柔軟なサービスをご提供いたします。<br />
             詳細な要件はお気軽にお問い合わせください。
           </p>

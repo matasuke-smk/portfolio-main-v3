@@ -38,7 +38,7 @@ const About = () => {
           <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
             ABOUT
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-gray-dark)' }}>
+          <p className="text-lg max-w-2xl mx-auto text-center" style={{ color: 'var(--color-gray-dark)' }}>
             AIツールを活用した効率的な開発と、<br />
             丁寧なコミュニケーションでお客様をサポートします。
           </p>

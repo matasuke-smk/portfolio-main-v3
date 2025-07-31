@@ -68,7 +68,7 @@ const Contact = () => {
           <h2 className="font-accent font-bold text-4xl lg:text-5xl text-gray-900 mb-4">
             CONTACT
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center">
             プロジェクトのご相談やお見積もりなど、<br />
             お気軽にお問い合わせください。24時間以内にご返信いたします。
           </p>

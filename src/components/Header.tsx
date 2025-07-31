@@ -64,7 +64,7 @@ const Header = () => {
 
           {/* デスクトップナビゲーション */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center space-x-12">
+            <div className="flex items-center space-x-2">
               {NAVIGATION.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -73,28 +73,31 @@ const Header = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="font-accent font-medium text-sm tracking-wider transition-all duration-300 relative group hover:text-accent px-2 py-1"
-                  style={{ color: 'var(--color-gray-dark)' }}
+                  className="font-accent font-semibold text-sm tracking-wider transition-all duration-300 relative group hover:text-white px-6 py-3 rounded-full"
+                  style={{ 
+                    color: 'var(--color-gray-darker)',
+                    border: '2px solid transparent'
+                  }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    backgroundColor: 'var(--color-accent)',
+                    borderColor: 'var(--color-accent)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {item.name}
                   
-                  {/* ホバーアンダーライン */}
-                  <motion.span 
-                    className="absolute inset-x-0 -bottom-1 h-0.5 rounded-full"
-                    style={{ backgroundColor: 'var(--color-accent)' }}
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  
-                  {/* ホバー背景 */}
+                  {/* グロー効果 */}
                   <motion.div
-                    className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-10 transition-opacity duration-300"
-                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                    style={{ 
+                      backgroundColor: 'var(--color-accent)',
+                      filter: 'blur(8px)',
+                      zIndex: -1
+                    }}
                   />
                 </motion.a>
               ))}
@@ -131,13 +134,20 @@ const Header = () => {
             
             {/* メニューパネル */}
             <motion.div
-              className="fixed top-20 right-4 w-64 bg-white rounded-lg shadow-xl z-50 lg:hidden"
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
+              className="fixed top-20 right-4 w-72 bg-white rounded-2xl shadow-2xl z-50 lg:hidden border border-gray-100"
+              initial={{ opacity: 0, x: '100%', scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: '100%', scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <nav className="flex flex-col py-8">
+              {/* メニューヘッダー */}
+              <div className="px-6 py-4 border-b border-gray-100">
+                <h3 className="font-accent font-bold text-lg" style={{ color: 'var(--color-gray-darker)' }}>
+                  Menu
+                </h3>
+              </div>
+              
+              <nav className="flex flex-col py-4">
                 {NAVIGATION.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -146,16 +156,38 @@ const Header = () => {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="font-accent font-medium text-sm tracking-wider text-gray-600 hover:text-accent hover:bg-gray-50 px-8 py-4 transition-all duration-300 border-b border-gray-100 last:border-b-0"
+                    className="font-accent font-semibold text-base tracking-wider text-gray-700 hover:text-white hover:bg-accent mx-4 my-1 px-6 py-4 rounded-xl transition-all duration-300 relative overflow-hidden group"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ x: 4 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {item.name}
+                    {/* 背景グラデーション */}
+                    <motion.div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)'
+                      }}
+                    />
+                    
+                    <span className="relative z-10">{item.name}</span>
+                    
+                    {/* 装飾アイコン */}
+                    <motion.div
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ backgroundColor: 'white' }}
+                      initial={{ x: -10, opacity: 0 }}
+                      whileHover={{ x: 0, opacity: 1 }}
+                    />
                   </motion.a>
                 ))}
               </nav>
+              
+              {/* メニューフッター */}
+              <div className="px-6 py-4 border-t border-gray-100 text-center">
+                <p className="text-xs text-gray-500">MATASUKE Portfolio</p>
+              </div>
             </motion.div>
           </>
         )}
