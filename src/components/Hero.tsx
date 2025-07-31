@@ -19,12 +19,29 @@ const Hero = () => {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ backgroundColor: 'var(--color-white)' }}
+      style={{ 
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f0f2f5 100%)'
+      }}
     >
-      {/* ミニマルな背景装飾 */}
+      {/* 幾何学的背景パターン */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full border-2" style={{ borderColor: 'var(--color-accent)' }} />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full border-2" style={{ borderColor: 'var(--color-gray-dark)' }} />
+        <div className="absolute bottom-1/4 left-1/3 w-48 h-48 rounded-full border-2" style={{ borderColor: 'var(--color-accent)' }} />
+      </div>
+      
+      {/* ドットパターン */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle, var(--color-accent) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px'
+      }} />
+      
+      {/* ミニマルな装飾線 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/3 w-px h-32 opacity-10" style={{ backgroundColor: 'var(--color-gray-medium)' }} />
-        <div className="absolute bottom-1/3 right-1/3 w-32 h-px opacity-10" style={{ backgroundColor: 'var(--color-gray-medium)' }} />
+        <div className="absolute top-1/3 left-1/3 w-px h-32 opacity-10" style={{ backgroundColor: 'var(--color-accent)' }} />
+        <div className="absolute bottom-1/3 right-1/3 w-32 h-px opacity-10" style={{ backgroundColor: 'var(--color-accent)' }} />
+        <div className="absolute top-1/2 left-1/4 w-2 h-2 rounded-full opacity-20" style={{ backgroundColor: 'var(--color-accent)' }} />
+        <div className="absolute bottom-1/4 right-1/2 w-2 h-2 rounded-full opacity-20" style={{ backgroundColor: 'var(--color-accent)' }} />
       </div>
 
       <div className="relative z-10 container-section text-center">
@@ -35,21 +52,42 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight" style={{ color: 'var(--color-black)' }}>
+            <h1 className="font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight relative" style={{ color: 'var(--color-black)' }}>
               {HERO.title.split('').map((char, index) => (
                 <motion.span
                   key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{
-                    duration: 0.6,
-                    delay: 0.5 + index * 0.1,
+                    duration: 0.8,
+                    delay: 0.5 + index * 0.08,
+                    type: "spring",
+                    stiffness: 100,
                   }}
-                  className="inline-block"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    color: 'var(--color-accent)',
+                    transition: { duration: 0.2 }
+                  }}
+                  className="inline-block cursor-default"
+                  style={{ transformOrigin: 'center bottom' }}
                 >
                   {char}
                 </motion.span>
               ))}
+              
+              {/* グロー効果 */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.1 }}
+                transition={{ duration: 2, delay: 1.5 }}
+                style={{
+                  background: `linear-gradient(45deg, transparent 30%, var(--color-accent) 50%, transparent 70%)`,
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
             </h1>
           </motion.div>
 
@@ -60,15 +98,42 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="space-y-6 lg:space-y-8 max-w-4xl mx-auto"
           >
-            <p className="text-xl sm:text-2xl lg:text-3xl font-medium" style={{ color: 'var(--color-gray-darker)' }}>
+            <motion.p 
+              className="text-xl sm:text-2xl lg:text-3xl font-medium" 
+              style={{ color: 'var(--color-gray-darker)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+            >
               {HERO.subtitle}
-            </p>
-            <p className="text-lg sm:text-xl lg:text-2xl" style={{ color: 'var(--color-gray-dark)' }}>
+            </motion.p>
+            <motion.p 
+              className="text-lg sm:text-xl lg:text-2xl" 
+              style={{ color: 'var(--color-gray-dark)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
               {HERO.description}
-            </p>
-            <p className="font-accent text-sm sm:text-base lg:text-lg tracking-wider uppercase" style={{ color: 'var(--color-accent)' }}>
+            </motion.p>
+            <motion.p 
+              className="font-accent text-sm sm:text-base lg:text-lg tracking-wider uppercase relative" 
+              style={{ color: 'var(--color-accent)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
+            >
               {HERO.subDescription}
-            </p>
+              
+              {/* アンダーライン効果 */}
+              <motion.div
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-px"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 0.8, delay: 2.2 }}
+              />
+            </motion.p>
           </motion.div>
 
           {/* CTA エリア */}
@@ -116,26 +181,72 @@ const Hero = () => {
 
       {/* スクロール促進アニメーション */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 2 }}
+        transition={{ duration: 0.8, delay: 2.5 }}
         onClick={scrollToWorks}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 15, 0] }}
           transition={{
-            duration: 2,
+            duration: 2.5,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="flex flex-col items-center space-y-2 transition-colors duration-300 hover:opacity-80"
-          style={{ color: 'var(--color-gray-medium)' }}
+          className="flex flex-col items-center space-y-3 transition-all duration-300 group-hover:opacity-80"
         >
-          <span className="font-accent text-xs tracking-wider uppercase">
+          <span className="font-accent text-xs tracking-wider uppercase" style={{ color: 'var(--color-gray-medium)' }}>
             Scroll
           </span>
-          <ChevronDown size={20} />
+          
+          {/* 矢印のセット */}
+          <div className="flex flex-col items-center space-y-1">
+            <motion.div
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 0,
+                ease: 'easeInOut',
+              }}
+            >
+              <ChevronDown size={16} style={{ color: 'var(--color-accent)' }} />
+            </motion.div>
+            <motion.div
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 0.3,
+                ease: 'easeInOut',
+              }}
+            >
+              <ChevronDown size={20} style={{ color: 'var(--color-accent)' }} />
+            </motion.div>
+            <motion.div
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 0.6,
+                ease: 'easeInOut',
+              }}
+            >
+              <ChevronDown size={16} style={{ color: 'var(--color-accent)' }} />
+            </motion.div>
+          </div>
+          
+          {/* 縦線 */}
+          <motion.div
+            className="w-px h-8"
+            style={{ backgroundColor: 'var(--color-accent)' }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: '2rem', opacity: 0.3 }}
+            transition={{ duration: 1, delay: 3 }}
+          />
         </motion.div>
       </motion.div>
     </section>

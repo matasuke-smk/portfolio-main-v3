@@ -30,11 +30,12 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 50%, #f8f9fa 100%);
   color: var(--foreground);
   font-family: var(--font-noto-sans-jp), -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .font-accent {
@@ -65,24 +66,55 @@ body {
 
 /* セクション間のスペーシング */
 .section-spacing {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .section-spacing {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
 }
 
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
 /* テキストとコンテンツのスペーシング */
 .content-spacing {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .content-spacing {
+    margin-bottom: 4rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .content-spacing {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
+}
+
+/* 見出しのフォントウェイト強化 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+}
+
+/* アクセント色の効果的使用 */
+.accent-glow {
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+.accent-border {
+  border: 2px solid var(--color-accent);
+}
+
+.accent-bg-subtle {
+  background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(0, 191, 255, 0.1) 100%);
 }

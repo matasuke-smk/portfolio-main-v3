@@ -60,68 +60,89 @@ const Works = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="rounded-none border transition-all duration-500 hover:shadow-lg" style={{ backgroundColor: 'var(--color-white)', borderColor: 'var(--color-gray-light)' }}>
+              <div className="rounded-lg border-2 border-transparent transition-all duration-500 hover:border-accent hover:shadow-2xl hover:shadow-accent/20 accent-bg-subtle group-hover:accent-glow" style={{ backgroundColor: 'var(--color-white)' }}>
                 {/* プロジェクト画像 */}
-                <div className="relative h-64 overflow-hidden" style={{ backgroundColor: 'var(--color-gray-light)' }}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}>
-                        <ExternalLink size={24} style={{ color: 'var(--color-accent)' }} />
-                      </div>
-                      <p className="text-sm" style={{ color: 'var(--color-gray-medium)' }}>
-                        プロジェクトイメージ
-                      </p>
-                    </div>
-                  </div>
+                <div className="relative h-64 overflow-hidden rounded-t-lg">
+                  <img
+                    src={`/images/work-${work.id}.svg`}
+                    alt={work.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* グラデーションオーバーレイ */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* ホバーオーバーレイ */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style={{ backgroundColor: 'rgba(0, 191, 255, 0.9)' }}>
-                    <div className="text-center" style={{ color: 'var(--color-white)' }}>
-                      <ExternalLink size={32} className="mx-auto mb-2" />
-                      <p className="font-accent text-sm tracking-wider uppercase">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center" style={{ backgroundColor: 'rgba(0, 191, 255, 0.95)' }}>
+                    <motion.div 
+                      className="text-center text-white"
+                      initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                      whileHover={{ scale: 1, opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        className="w-16 h-16 mx-auto mb-4 rounded-full border-2 border-white/30 flex items-center justify-center"
+                      >
+                        <ExternalLink size={28} />
+                      </motion.div>
+                      <p className="font-accent text-sm tracking-wider uppercase font-bold">
                         View Project
                       </p>
-                    </div>
+                      <p className="text-xs mt-2 opacity-80">
+                        Click to explore
+                      </p>
+                    </motion.div>
+                  </div>
+                  
+                  {/* カテゴリータグ */}
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-block px-3 py-1 text-xs font-accent tracking-wider uppercase rounded-full backdrop-blur-sm" style={{ backgroundColor: 'rgba(0, 191, 255, 0.9)', color: 'white' }}>
+                      {work.category}
+                    </span>
                   </div>
                 </div>
 
                 {/* プロジェクト情報 */}
-                <div className="p-8">
-                  <div className="mb-3">
-                    <span className="inline-block px-3 py-1 text-xs font-accent tracking-wider uppercase rounded-full" style={{ backgroundColor: 'var(--color-gray-light)', color: 'var(--color-gray-dark)' }}>
-                      {work.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="font-bold text-xl mb-2 group-hover:opacity-80 transition-all duration-300" style={{ color: 'var(--color-black)' }}>
+                <div className="p-8 relative">
+                  {/* タイトル */}
+                  <h3 className="font-bold text-xl mb-3 group-hover:text-accent transition-colors duration-300" style={{ color: 'var(--color-black)' }}>
                     {work.title}
                   </h3>
                   
-                  <p className="text-sm mb-4 line-clamp-2" style={{ color: 'var(--color-gray-dark)' }}>
+                  {/* 説明 */}
+                  <p className="text-sm mb-6 line-clamp-2 leading-relaxed" style={{ color: 'var(--color-gray-dark)' }}>
                     {work.description}
                   </p>
                   
-                  <div className="space-y-2 text-xs" style={{ color: 'var(--color-gray-medium)' }}>
-                    <p>
-                      <span className="font-medium">業種:</span> {work.industry}
-                    </p>
-                    <p>
-                      <span className="font-medium">制作期間:</span> {work.period}
-                    </p>
+                  {/* プロジェクト詳細 */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-medium" style={{ color: 'var(--color-gray-medium)' }}>業種:</span>
+                      <span className="font-medium" style={{ color: 'var(--color-gray-dark)' }}>{work.industry}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-medium" style={{ color: 'var(--color-gray-medium)' }}>制作期間:</span>
+                      <span className="font-medium" style={{ color: 'var(--color-gray-dark)' }}>{work.period}</span>
+                    </div>
                   </div>
                   
                   {/* 使用技術 */}
-                  <div className="mt-4 flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-2">
                     {work.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 text-xs rounded"
-                        style={{ backgroundColor: 'var(--color-gray-light)', color: 'var(--color-gray-dark)' }}
+                        className="px-3 py-1 text-xs rounded-full border transition-colors duration-300 hover:border-accent hover:text-accent"
+                        style={{ backgroundColor: 'transparent', color: 'var(--color-gray-medium)', borderColor: 'var(--color-gray-light)' }}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+                  
+                  {/* 装飾的な要素 */}
+                  <div className="absolute bottom-0 left-8 right-8 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ backgroundColor: 'var(--color-accent)' }} />
                 </div>
               </div>
             </motion.div>

@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   keywords: ["Web制作", "フロントエンド", "Next.js", "React", "ポートフォリオ", "またすけ", "MATASUKE"],
   authors: [{ name: SITE_CONFIG.creator }],
   creator: SITE_CONFIG.creator,
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' }
+    ],
+    apple: { url: '/favicon.svg', type: 'image/svg+xml' }
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",

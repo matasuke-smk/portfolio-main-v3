@@ -47,24 +47,38 @@ const Footer = () => {
             >
               <h4 className="font-bold text-lg mb-6">Connect</h4>
               <div className="space-y-4">
-                <a
+                <motion.a
                   href={SOCIAL_LINKS.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-gray-300 hover:text-accent transition-colors duration-300"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-accent transition-all duration-300 group"
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Twitter size={20} />
-                  <span>Twitter / X</span>
-                </a>
-                <a
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Twitter size={20} />
+                  </motion.div>
+                  <span className="group-hover:font-medium">Twitter / X</span>
+                </motion.a>
+                <motion.a
                   href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-gray-300 hover:text-accent transition-colors duration-300"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-accent transition-all duration-300 group"
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Github size={20} />
-                  <span>GitHub</span>
-                </a>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Github size={20} />
+                  </motion.div>
+                  <span className="group-hover:font-medium">GitHub</span>
+                </motion.a>
               </div>
             </motion.div>
           </div>
@@ -104,12 +118,27 @@ const Footer = () => {
             {/* トップへ戻るボタン */}
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center space-x-2 text-gray-400 hover:text-accent transition-colors duration-300 group"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
+              className="flex items-center space-x-2 text-gray-400 hover:text-accent transition-all duration-300 group relative overflow-hidden"
+              whileHover={{ y: -3, scale: 1.05 }}
+              whileTap={{ y: 0, scale: 0.95 }}
             >
-              <span className="text-sm">Back to top</span>
-              <ArrowUp size={16} className="group-hover:animate-bounce" />
+              {/* 背景エフェクト */}
+              <motion.div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              <span className="text-sm font-accent tracking-wider uppercase relative z-10">Back to top</span>
+              <motion.div
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10"
+              >
+                <ArrowUp size={16} />
+              </motion.div>
             </motion.button>
           </div>
         </motion.div>
