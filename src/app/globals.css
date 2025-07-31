@@ -66,21 +66,21 @@ body {
 
 /* セクション間のスペーシング */
 .section-spacing {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 10rem !important;
+  padding-bottom: 10rem !important;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 15rem !important;
+    padding-bottom: 15rem !important;
   }
 }
 
 @media (min-width: 1024px) {
   .section-spacing {
-    padding-top: 16rem;
-    padding-bottom: 16rem;
+    padding-top: 20rem !important;
+    padding-bottom: 20rem !important;
   }
 }
 

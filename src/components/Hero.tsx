@@ -149,7 +149,11 @@ const Hero = () => {
                 e.preventDefault();
                 scrollToWorks();
               }}
-              className="inline-flex items-center px-12 py-5 font-accent font-bold text-sm tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl"
+              className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl"
+              style={{ 
+                padding: '1.5rem 3rem',
+                fontSize: '1rem'
+              }}
               style={{ 
                 background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)',
                 color: 'white'
@@ -207,7 +211,11 @@ const Hero = () => {
                   });
                 }
               }}
-              className="inline-flex items-center px-12 py-5 font-accent font-bold text-sm tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group border-2 hover:border-accent hover:text-white shadow-lg hover:shadow-2xl"
+              className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group border-2 hover:border-accent hover:text-white shadow-lg hover:shadow-2xl"
+              style={{ 
+                padding: '1.5rem 3rem',
+                fontSize: '1rem'
+              }}
               style={{ 
                 backgroundColor: 'transparent',
                 borderColor: 'var(--color-gray-darker)',
