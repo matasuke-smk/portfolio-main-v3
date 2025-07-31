@@ -52,7 +52,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="hero-title font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight relative" style={{ color: 'var(--color-black)' }}>
+            <h1 className="hero-title font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight relative" style={{ color: 'var(--color-black)', fontSize: 'clamp(4rem, 12vw, 8rem) !important' }}>
               {HERO.title.split('').map((char, index) => (
                 <motion.span
                   key={index}
