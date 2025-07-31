@@ -38,7 +38,7 @@ const Works = () => {
           <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
             WORKS
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-center" style={{ color: 'var(--color-gray-dark)' }}>
+          <p className="text-lg max-w-2xl mx-auto section-description" style={{ color: 'var(--color-gray-dark)' }}>
             これまでに制作した架空のプロジェクトです。<br />
             実際の案件対応力をお確かめください。
           </p>

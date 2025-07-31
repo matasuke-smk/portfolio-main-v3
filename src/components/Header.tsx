@@ -64,7 +64,7 @@ const Header = () => {
 
           {/* デスクトップナビゲーション */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-6">
               {NAVIGATION.map((item, index) => (
                 <motion.a
                   key={item.name}

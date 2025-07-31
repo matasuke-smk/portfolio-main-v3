@@ -38,7 +38,7 @@ const About = () => {
           <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
             ABOUT
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-center" style={{ color: 'var(--color-gray-dark)' }}>
+          <p className="text-lg max-w-2xl mx-auto section-description" style={{ color: 'var(--color-gray-dark)' }}>
             AIツールを活用した効率的な開発と、<br />
             丁寧なコミュニケーションでお客様をサポートします。
           </p>
@@ -87,16 +87,42 @@ const About = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               transition={{ staggerChildren: 0.1, duration: 0.6 }}
-              className="space-y-3"
+              className="grid grid-cols-1 gap-4"
             >
               {SKILLS.map((skill, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex items-center space-x-3"
+                  className="flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 hover:shadow-lg group"
+                  style={{ 
+                    backgroundColor: 'rgba(0, 191, 255, 0.03)',
+                    border: '1px solid rgba(0, 191, 255, 0.1)'
+                  }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    backgroundColor: 'rgba(0, 191, 255, 0.08)'
+                  }}
                 >
-                  <CheckCircle size={20} className="text-accent flex-shrink-0" />
-                  <span className="text-gray-700 font-medium">{skill}</span>
+                  <motion.div
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <CheckCircle size={20} className="text-white" />
+                  </motion.div>
+                  <span className="text-gray-800 font-semibold text-lg group-hover:text-accent transition-colors duration-300">
+                    {skill}
+                  </span>
+                  
+                  {/* 装飾要素 */}
+                  <motion.div
+                    className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ x: -10 }}
+                    whileHover={{ x: 0 }}
+                  >
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  </motion.div>
                 </motion.div>
               ))}
             </motion.div>
@@ -120,24 +146,69 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
           >
             {STRENGTHS.map((strength, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center group"
+                className="group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                    <div className="w-8 h-8 bg-accent rounded-full"></div>
-                  </div>
-                  <h4 className="font-bold text-lg text-gray-900 mb-3">
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-accent/30 relative overflow-hidden">
+                  {/* 背景装飾 */}
+                  <motion.div
+                    className="absolute top-0 right-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  />
+                  
+                  {/* アイコン */}
+                  <motion.div 
+                    className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center relative"
+                    style={{ 
+                      background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)'
+                    }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div 
+                      className="w-10 h-10 bg-white rounded-xl flex items-center justify-center"
+                      whileHover={{ rotate: -5 }}
+                    >
+                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: 'var(--color-accent)' }} />
+                    </motion.div>
+                    
+                    {/* グロー効果 */}
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                      style={{ 
+                        backgroundColor: 'var(--color-accent)',
+                        filter: 'blur(8px)',
+                        zIndex: -1
+                      }}
+                    />
+                  </motion.div>
+                  
+                  {/* タイトル */}
+                  <h4 className="font-bold text-xl text-gray-900 mb-4 text-center group-hover:text-accent transition-colors duration-300">
                     {strength.title}
                   </h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  
+                  {/* 説明文 */}
+                  <p className="text-base text-gray-600 leading-relaxed text-center">
                     {strength.description}
                   </p>
+                  
+                  {/* 底部の装飾線 */}
+                  <motion.div
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '60%' }}
+                  />
                 </div>
               </motion.div>
             ))}

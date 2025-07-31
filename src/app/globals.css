@@ -118,3 +118,11 @@ h1, h2, h3, h4, h5, h6 {
 .accent-bg-subtle {
   background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(0, 191, 255, 0.1) 100%);
 }
+
+/* セクション説明文の確実な中央表示 */
+.section-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
