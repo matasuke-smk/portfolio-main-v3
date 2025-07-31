@@ -102,6 +102,55 @@ body {
   margin-top: 1rem !important;       /* 16px - 画像とテキスト間 */
 }
 
+/* フォーム項目間の余白 */
+.form-field-spacing {
+  margin-bottom: 1.5rem !important;  /* 24px - フィールド間 */
+}
+
+.form-label-spacing {
+  margin-bottom: 0.5rem !important;  /* 8px - ラベルと入力欄間 */
+}
+
+/* 全体的なフォントサイズ調整 */
+body {
+  font-size: 16px !important;        /* 本文基準サイズ */
+}
+
+p, span, div {
+  font-size: 1rem !important;        /* 16px - 本文 */
+  line-height: 1.6 !important;
+}
+
+h1 {
+  font-size: 3rem !important;        /* 48px - メインタイトル */
+}
+
+h2 {
+  font-size: 2.5rem !important;      /* 40px - セクションタイトル */
+}
+
+h3 {
+  font-size: 1.5rem !important;      /* 24px - サブタイトル */
+}
+
+h4 {
+  font-size: 1.25rem !important;     /* 20px - 小見出し */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;    /* 40px on mobile */
+  }
+  
+  h2 {
+    font-size: 2rem !important;      /* 32px on mobile */
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;   /* 20px on mobile */
+  }
+}
+
 /* ヒーローセクション専用スペーシング */
 .hero-padding-top {
   padding-top: 7.5rem !important;    /* 120px */

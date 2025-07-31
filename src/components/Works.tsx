@@ -60,7 +60,7 @@ const Works = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="rounded-lg border-2 border-transparent transition-all duration-500 hover:border-accent hover:shadow-2xl hover:shadow-accent/20 accent-bg-subtle group-hover:accent-glow" style={{ backgroundColor: 'var(--color-white)' }}>
+              <div className="rounded-lg border-2 border-transparent hover:border-accent accent-bg-subtle" style={{ backgroundColor: 'var(--color-white)', transition: 'all 0.3s ease', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 191, 255, 0.2), 0 10px 10px -5px rgba(0, 191, 255, 0.04)'; }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'; }}>
                 {/* プロジェクト画像 */}
                 <div className="relative h-64 overflow-hidden rounded-t-lg">
                   <img

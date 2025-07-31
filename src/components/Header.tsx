@@ -41,7 +41,7 @@ const Header = () => {
         borderBottom: isScrolled ? '1px solid var(--color-gray-light)' : 'none'
       }}
     >
-      <div className="container-section">
+      <div className="container-section" style={{ maxWidth: '1200px' }}>
         <div className="flex items-center justify-between px-4" style={{ height: '6rem' }}>
           {/* ロゴ */}
           <motion.div
@@ -64,7 +64,7 @@ const Header = () => {
 
           {/* デスクトップナビゲーション */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center" style={{ gap: '3rem' }}>
+            <div className="flex items-center" style={{ gap: '1.5rem' }}>
               {NAVIGATION.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -75,8 +75,8 @@ const Header = () => {
                   }}
                   className="font-accent font-semibold tracking-wider transition-all duration-300 relative group hover:text-white rounded-full"
                   style={{ 
-                    fontSize: '1.25rem',
-                    padding: '1rem 2rem',
+                    fontSize: '1rem',
+                    padding: '0.5rem 1rem',
                     color: 'var(--color-gray-darker)',
                     border: '2px solid transparent'
                   }}

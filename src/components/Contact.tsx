@@ -93,8 +93,8 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* お名前 */}
-              <div className="space-y-3">
-                <label htmlFor="name" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+              <div className="form-field-spacing">
+                <label htmlFor="name" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                   <motion.div
                     className="w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
@@ -118,8 +118,8 @@ const Contact = () => {
               </div>
 
               {/* 会社名 */}
-              <div className="space-y-3">
-                <label htmlFor="company" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+              <div className="form-field-spacing">
+                <label htmlFor="company" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                   <motion.div
                     className="w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
@@ -144,8 +144,8 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* メールアドレス */}
-              <div className="space-y-3">
-                <label htmlFor="email" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+              <div className="form-field-spacing">
+                <label htmlFor="email" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                   <motion.div
                     className="w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
@@ -169,8 +169,8 @@ const Contact = () => {
               </div>
 
               {/* 電話番号 */}
-              <div className="space-y-3">
-                <label htmlFor="phone" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+              <div className="form-field-spacing">
+                <label htmlFor="phone" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                   <motion.div
                     className="w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
@@ -194,8 +194,8 @@ const Contact = () => {
             </div>
 
             {/* お問い合わせ種別 */}
-            <div className="space-y-3">
-              <label htmlFor="type" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+            <div className="form-field-spacing">
+              <label htmlFor="type" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                 <motion.div
                   className="w-8 h-8 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
@@ -224,8 +224,8 @@ const Contact = () => {
             </div>
 
             {/* お問い合わせ内容 */}
-            <div className="space-y-3">
-              <label htmlFor="message" className="flex items-center space-x-3 text-base font-semibold text-gray-800 mb-3">
+            <div className="form-field-spacing">
+              <label htmlFor="message" className="flex items-center space-x-3 text-base font-semibold text-gray-800 form-label-spacing">
                 <motion.div
                   className="w-8 h-8 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}

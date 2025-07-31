@@ -90,7 +90,8 @@ const Service = () => {
                     </motion.h3>
                     <div className="flex items-baseline space-x-3 mb-2">
                       <motion.span 
-                        className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-accent to-blue-600 bg-clip-text text-transparent"
+                        className="text-3xl lg:text-4xl font-black"
+                        style={{ color: 'var(--color-gray-darker)' }}
                         whileHover={{ scale: 1.05 }}
                       >
                         {service.price}
@@ -164,7 +165,7 @@ const Service = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-32 lg:mt-48"
+          style={{ marginTop: '2.5rem' }}
         >
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-16 rounded-3xl border border-gray-200 relative overflow-hidden">
             {/* 背景装飾 */}
