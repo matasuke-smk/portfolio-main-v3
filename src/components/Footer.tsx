@@ -14,10 +14,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="container-section">
         {/* メインフッターコンテンツ */}
-        <div className="py-16 lg:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="py-20 lg:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20">
             {/* ブランド情報 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -76,7 +76,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="border-t border-gray-800 py-8"
+          className="border-t border-gray-800 py-12"
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             {/* コピーライト */}

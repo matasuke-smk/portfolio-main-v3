@@ -54,16 +54,16 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 bg-gray-50"
+      className="section-spacing bg-gray-50"
     >
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="container-section max-w-4xl">
         {/* セクションヘッダー */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-24"
+          className="text-center content-spacing"
         >
           <h2 className="font-accent font-bold text-4xl lg:text-5xl text-gray-900 mb-4">
             CONTACT
@@ -80,7 +80,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white rounded-lg shadow-sm p-8 lg:p-12"
+          className="bg-white rounded-lg shadow-sm p-10 lg:p-16"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -261,7 +261,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-16 lg:mt-24 text-center"
         >
           <p className="text-sm text-gray-500 leading-relaxed">
             お急ぎの場合は、SNSのDMでもお気軽にお声がけください。<br />
