@@ -167,7 +167,7 @@ const Service = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           style={{ marginTop: '2.5rem' }}
         >
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-16 rounded-3xl border border-gray-200 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 relative overflow-hidden" style={{ padding: '4rem 3rem' }}>
             {/* 背景装飾 */}
             <motion.div
               className="absolute top-0 left-0 w-40 h-40 opacity-5"

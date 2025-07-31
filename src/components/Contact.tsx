@@ -80,7 +80,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl border border-gray-100 p-12 lg:p-20 relative overflow-hidden"
+          className="bg-white rounded-2xl shadow-xl border border-gray-100 relative overflow-hidden" style={{ padding: '3rem' }}
         >
           {/* 背景装飾 */}
           <motion.div
