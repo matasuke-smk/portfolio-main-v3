@@ -152,9 +152,7 @@ const Hero = () => {
               className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl"
               style={{ 
                 padding: '1.5rem 3rem',
-                fontSize: '1rem'
-              }}
-              style={{ 
+                fontSize: '1rem',
                 background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)',
                 color: 'white'
               }}
@@ -214,9 +212,7 @@ const Hero = () => {
               className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group border-2 hover:border-accent hover:text-white shadow-lg hover:shadow-2xl"
               style={{ 
                 padding: '1.5rem 3rem',
-                fontSize: '1rem'
-              }}
-              style={{ 
+                fontSize: '1rem',
                 backgroundColor: 'transparent',
                 borderColor: 'var(--color-gray-darker)',
                 color: 'var(--color-gray-darker)'

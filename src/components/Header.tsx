@@ -76,9 +76,7 @@ const Header = () => {
                   className="font-accent font-semibold tracking-wider transition-all duration-300 relative group hover:text-white rounded-full"
                   style={{ 
                     fontSize: '1.25rem',
-                    padding: '1rem 2rem'
-                  }}
-                  style={{ 
+                    padding: '1rem 2rem',
                     color: 'var(--color-gray-darker)',
                     border: '2px solid transparent'
                   }}
