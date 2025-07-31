@@ -111,30 +111,36 @@ body {
   margin-bottom: 0.5rem !important;  /* 8px - ラベルと入力欄間 */
 }
 
-/* 全体的なフォントサイズ調整 */
+/* 全体的なフォントサイズ調整 - ヒーロータイトルを除外 */
 body {
-  font-size: 16px !important;        /* 本文基準サイズ */
+  font-size: 16px;                   /* 本文基準サイズ */
 }
 
-p, span, div {
-  font-size: 1rem !important;        /* 16px - 本文 */
-  line-height: 1.6 !important;
+p:not(.hero-title *), span:not(.hero-title *), div:not(.hero-title *) {
+  font-size: 1rem;                   /* 16px - 本文 */
+  line-height: 1.6;
 }
 
 h1:not(.hero-title) {
   font-size: 3rem !important;        /* 48px - メインタイトル */
 }
 
-h2 {
+h2:not(.hero-title *) {
   font-size: 2.5rem !important;      /* 40px - セクションタイトル */
 }
 
-h3 {
+h3:not(.hero-title *) {
   font-size: 1.5rem !important;      /* 24px - サブタイトル */
 }
 
-h4 {
+h4:not(.hero-title *) {
   font-size: 1.25rem !important;     /* 20px - 小見出し */
+}
+
+/* ヒーロータイトル専用スタイル */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 8rem) !important;
+  line-height: 1.1 !important;
 }
 
 @media (max-width: 768px) {
@@ -142,12 +148,16 @@ h4 {
     font-size: 2.5rem !important;    /* 40px on mobile */
   }
   
-  h2 {
+  h2:not(.hero-title *) {
     font-size: 2rem !important;      /* 32px on mobile */
   }
   
-  h3 {
+  h3:not(.hero-title *) {
     font-size: 1.25rem !important;   /* 20px on mobile */
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 6rem) !important;
   }
 }
 

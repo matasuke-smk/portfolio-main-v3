@@ -177,13 +177,14 @@ const Service = () => {
             />
             
             <motion.h3 
-              className="font-bold text-2xl lg:text-3xl text-gray-900 mb-8 text-center"
+              className="font-bold text-2xl lg:text-3xl text-gray-900 text-center"
+              style={{ marginBottom: '3rem' }}
               whileHover={{ scale: 1.02 }}
             >
               その他のご相談も承ります
             </motion.h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '3rem', marginBottom: '4rem' }}>
               {[
                 { title: "保守・運用", desc: "サイト公開後の継続的なメンテナンスやアップデート作業" },
                 { title: "SEO対策", desc: "検索エンジン最適化による集客力向上のサポート" },
@@ -191,18 +192,22 @@ const Service = () => {
               ].map((item, index) => (
                 <motion.div 
                   key={index}
-                  className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group"
+                  className="text-center bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group"
+                  style={{ padding: '3rem 2rem' }}
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
                   <motion.div
-                    className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(0, 191, 255, 0.1)' }}
+                    className="w-20 h-20 mx-auto rounded-full flex items-center justify-center"
+                    style={{ 
+                      marginBottom: '2rem',
+                      backgroundColor: 'rgba(0, 191, 255, 0.1)'
+                    }}
                     whileHover={{ rotate: 360, backgroundColor: 'rgba(0, 191, 255, 0.2)' }}
                     transition={{ duration: 0.5 }}
                   >
                     <div className="w-8 h-8 rounded-full" style={{ backgroundColor: 'var(--color-accent)' }} />
                   </motion.div>
-                  <h4 className="font-bold text-lg text-gray-900 mb-4 group-hover:text-accent transition-colors duration-300">
+                  <h4 className="font-bold text-lg text-gray-900 group-hover:text-accent transition-colors duration-300" style={{ marginBottom: '1.5rem' }}>
                     {item.title}
                   </h4>
                   <p className="text-gray-600 text-base leading-relaxed">
@@ -213,10 +218,11 @@ const Service = () => {
             </div>
             
             <motion.div 
-              className="pt-12 border-t-2 border-gray-300 text-center"
+              className="border-t-2 border-gray-300 text-center"
+              style={{ paddingTop: '4rem' }}
               whileHover={{ scale: 1.01 }}
             >
-              <div className="inline-block p-8 bg-white rounded-2xl shadow-sm">
+              <div className="inline-block bg-white rounded-2xl shadow-sm" style={{ padding: '3rem' }}>
                 <p className="text-sm text-gray-600 leading-relaxed space-y-1">
                   <span className="block font-medium">※ 上記価格はすべて税抜表示です</span>
                   <span className="block font-medium">※ プロジェクトの規模や要件により価格は変動いたします</span>
