@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-padding-top hero-padding-bottom"
       style={{ 
         background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f0f2f5 100%)'
       }}
@@ -45,7 +45,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container-section text-center">
-        <div className="space-y-12 lg:space-y-16 py-8">
+        <div className="space-y-16 lg:space-y-20 py-8">
           {/* メインタイトル */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

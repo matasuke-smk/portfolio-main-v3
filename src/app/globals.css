@@ -64,40 +64,72 @@ body {
   }
 }
 
-/* セクション間のスペーシング */
+/* セクション間の統一スペーシング */
 .section-spacing {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-}
-
-@media (min-width: 768px) {
-  .section-spacing {
-    padding-top: 15rem !important;
-    padding-bottom: 15rem !important;
-  }
+  padding-top: 5rem !important;   /* 80px */
+  padding-bottom: 5rem !important;
 }
 
 @media (min-width: 1024px) {
   .section-spacing {
-    padding-top: 20rem !important;
-    padding-bottom: 20rem !important;
+    padding-top: 7.5rem !important;   /* 120px */
+    padding-bottom: 7.5rem !important;
   }
 }
 
-/* テキストとコンテンツのスペーシング */
+/* コンテンツ内の余白ルール */
 .content-spacing {
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem !important;  /* 40px - 大見出し下 */
 }
 
-@media (min-width: 768px) {
-  .content-spacing {
-    margin-bottom: 6rem;
+.heading-spacing-medium {
+  margin-bottom: 1.5rem !important;  /* 24px - 中見出し下 */
+}
+
+.paragraph-spacing {
+  margin-bottom: 1rem !important;    /* 16px - 段落間 */
+}
+
+.card-gap {
+  gap: 2rem !important;              /* 32px - カード間 */
+}
+
+.card-padding {
+  padding: 1.5rem !important;        /* 24px - カード内 */
+}
+
+.image-text-gap {
+  margin-top: 1rem !important;       /* 16px - 画像とテキスト間 */
+}
+
+/* ヒーローセクション専用スペーシング */
+.hero-padding-top {
+  padding-top: 7.5rem !important;    /* 120px */
+}
+
+.hero-padding-bottom {
+  padding-bottom: 10rem !important;  /* 160px */
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 1023px) {
+  .hero-padding-top {
+    padding-top: 5rem !important;    /* 80px on mobile */
+  }
+  
+  .hero-padding-bottom {
+    padding-bottom: 6rem !important; /* 96px on mobile */
   }
 }
 
+/* フッター上部の余白確保 */
+.footer-top-spacing {
+  padding-top: 5rem !important;      /* 80px - フッター前の余白 */
+}
+
 @media (min-width: 1024px) {
-  .content-spacing {
-    margin-bottom: 8rem;
+  .footer-top-spacing {
+    padding-top: 7.5rem !important;  /* 120px - PC時の余白 */
   }
 }
 

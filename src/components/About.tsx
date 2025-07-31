@@ -35,7 +35,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center content-spacing"
         >
-          <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
+          <h2 className="font-accent font-bold text-4xl lg:text-5xl heading-spacing-medium" style={{ color: 'var(--color-black)' }}>
             ABOUT
           </h2>
           <p className="text-lg max-w-2xl mx-auto section-description" style={{ color: 'var(--color-gray-dark)' }}>
@@ -52,7 +52,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-bold text-2xl text-gray-900 mb-6">
+            <h3 className="font-bold text-2xl text-gray-900 heading-spacing-medium">
               Profile
             </h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
@@ -78,7 +78,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-bold text-2xl text-gray-900 mb-6">
+            <h3 className="font-bold text-2xl text-gray-900 heading-spacing-medium">
               Skills
             </h3>
             <motion.div
@@ -137,7 +137,7 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-32 lg:mt-48"
         >
-          <h3 className="font-bold text-2xl text-gray-900 text-center mb-12">
+          <h3 className="font-bold text-2xl text-gray-900 text-center content-spacing">
             Strengths
           </h3>
           

@@ -65,7 +65,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center content-spacing"
         >
-          <h2 className="font-accent font-bold text-4xl lg:text-5xl text-gray-900 mb-4">
+          <h2 className="font-accent font-bold text-4xl lg:text-5xl text-gray-900 heading-spacing-medium">
             CONTACT
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto section-description">

@@ -45,7 +45,7 @@ const Service = () => {
           transition={{ duration: 0.8 }}
           className="text-center content-spacing"
         >
-          <h2 className="font-accent font-bold text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-black)' }}>
+          <h2 className="font-accent font-bold text-4xl lg:text-5xl heading-spacing-medium" style={{ color: 'var(--color-black)' }}>
             SERVICE & PRICE
           </h2>
           <p className="text-lg max-w-2xl mx-auto section-description" style={{ color: 'var(--color-gray-dark)' }}>
@@ -60,7 +60,7 @@ const Service = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16"
+          className="grid grid-cols-1 md:grid-cols-2 card-gap"
         >
           {SERVICES.map((service, index) => (
             <motion.div
@@ -79,7 +79,7 @@ const Service = () => {
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 />
                 
-                <div className="p-10 relative z-10">
+                <div className="card-padding relative z-10" style={{ padding: '2.5rem' }}>
                   {/* サービス名と価格 */}
                   <div className="mb-8">
                     <motion.h3 

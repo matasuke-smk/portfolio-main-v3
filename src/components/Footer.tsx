@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white footer-top-spacing">
       <div className="container-section">
         {/* メインフッターコンテンツ */}
         <div className="py-20 lg:py-32">

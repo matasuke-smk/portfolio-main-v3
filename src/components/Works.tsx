@@ -50,7 +50,7 @@ const Works = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 card-gap"
         >
           {WORKS.map((work) => (
             <motion.div
@@ -105,19 +105,19 @@ const Works = () => {
                 </div>
 
                 {/* プロジェクト情報 */}
-                <div className="p-8 relative">
+                <div className="card-padding relative">
                   {/* タイトル */}
                   <h3 className="font-bold text-xl mb-3 group-hover:text-accent transition-colors duration-300" style={{ color: 'var(--color-black)' }}>
                     {work.title}
                   </h3>
                   
                   {/* 説明 */}
-                  <p className="text-sm mb-6 line-clamp-2 leading-relaxed" style={{ color: 'var(--color-gray-dark)' }}>
+                  <p className="text-sm paragraph-spacing line-clamp-2 leading-relaxed image-text-gap" style={{ color: 'var(--color-gray-dark)' }}>
                     {work.description}
                   </p>
                   
                   {/* プロジェクト詳細 */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-3 paragraph-spacing">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-medium" style={{ color: 'var(--color-gray-medium)' }}>業種:</span>
                       <span className="font-medium" style={{ color: 'var(--color-gray-dark)' }}>{work.industry}</span>
