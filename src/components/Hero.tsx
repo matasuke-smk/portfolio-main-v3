@@ -141,7 +141,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-16 lg:pt-20 pb-8 lg:pb-12 px-8 lg:px-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 pb-8 lg:pb-12 px-8 lg:px-12" style={{ paddingTop: '6rem' }}
           >
             <motion.a
               href="#works"
