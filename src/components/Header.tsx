@@ -42,7 +42,7 @@ const Header = () => {
       }}
     >
       <div className="container-section">
-        <div className="flex items-center justify-between h-18 lg:h-24">
+        <div className="flex items-center justify-between h-20 lg:h-28 px-2">
           {/* ロゴ */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -63,25 +63,42 @@ const Header = () => {
           </motion.div>
 
           {/* デスクトップナビゲーション */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {NAVIGATION.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className="font-accent font-medium text-sm tracking-wider transition-colors duration-300 relative group hover:opacity-80"
-                style={{ color: 'var(--color-gray-dark)' }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {item.name}
-                <span className="absolute inset-x-0 -bottom-1 h-0.5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style={{ backgroundColor: 'var(--color-accent)' }} />
-              </motion.a>
-            ))}
+          <nav className="hidden lg:flex items-center">
+            <div className="flex items-center space-x-12">
+              {NAVIGATION.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
+                  className="font-accent font-medium text-sm tracking-wider transition-all duration-300 relative group hover:text-accent px-2 py-1"
+                  style={{ color: 'var(--color-gray-dark)' }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {item.name}
+                  
+                  {/* ホバーアンダーライン */}
+                  <motion.span 
+                    className="absolute inset-x-0 -bottom-1 h-0.5 rounded-full"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  {/* ホバー背景 */}
+                  <motion.div
+                    className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                  />
+                </motion.a>
+              ))}
+            </div>
           </nav>
 
           {/* モバイルメニューボタン */}
@@ -114,13 +131,13 @@ const Header = () => {
             
             {/* メニューパネル */}
             <motion.div
-              className="fixed top-16 right-0 w-64 bg-white shadow-xl z-50 lg:hidden"
+              className="fixed top-20 right-4 w-64 bg-white rounded-lg shadow-xl z-50 lg:hidden"
               initial={{ opacity: 0, x: '100%' }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
             >
-              <nav className="flex flex-col py-6">
+              <nav className="flex flex-col py-8">
                 {NAVIGATION.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -129,10 +146,11 @@ const Header = () => {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="font-accent font-medium text-sm tracking-wider text-gray-600 hover:text-accent hover:bg-gray-50 px-6 py-3 transition-colors duration-300"
+                    className="font-accent font-medium text-sm tracking-wider text-gray-600 hover:text-accent hover:bg-gray-50 px-8 py-4 transition-all duration-300 border-b border-gray-100 last:border-b-0"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ x: 4 }}
                   >
                     {item.name}
                   </motion.a>
