@@ -121,7 +121,7 @@ p, span, div {
   line-height: 1.6 !important;
 }
 
-h1 {
+h1:not(.hero-title) {
   font-size: 3rem !important;        /* 48px - メインタイトル */
 }
 

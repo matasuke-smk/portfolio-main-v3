@@ -52,7 +52,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight relative" style={{ color: 'var(--color-black)' }}>
+            <h1 className="hero-title font-accent font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight relative" style={{ color: 'var(--color-black)' }}>
               {HERO.title.split('').map((char, index) => (
                 <motion.span
                   key={index}
@@ -151,7 +151,7 @@ const Hero = () => {
               }}
               className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl"
               style={{ 
-                padding: '1.5rem 3rem',
+                padding: '0.75rem 2rem',
                 fontSize: '1rem',
                 background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)',
                 color: 'white'
@@ -211,7 +211,7 @@ const Hero = () => {
               }}
               className="inline-flex items-center font-accent font-bold tracking-wider uppercase rounded-full transition-all duration-300 relative overflow-hidden group border-2 hover:border-accent hover:text-white shadow-lg hover:shadow-2xl"
               style={{ 
-                padding: '1.5rem 3rem',
+                padding: '0.75rem 2rem',
                 fontSize: '1rem',
                 backgroundColor: 'transparent',
                 borderColor: 'var(--color-gray-darker)',
