@@ -66,38 +66,38 @@ body {
 
 /* セクション間のスペーシング */
 .section-spacing {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-spacing {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 16rem;
+    padding-bottom: 16rem;
   }
 }
 
 /* テキストとコンテンツのスペーシング */
 .content-spacing {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .content-spacing {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
   }
 }
 
 @media (min-width: 1024px) {
   .content-spacing {
-    margin-bottom: 5rem;
+    margin-bottom: 8rem;
   }
 }
 

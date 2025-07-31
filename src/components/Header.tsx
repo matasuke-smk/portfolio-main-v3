@@ -42,7 +42,7 @@ const Header = () => {
       }}
     >
       <div className="container-section">
-        <div className="flex items-center justify-between h-20 lg:h-28 px-2">
+        <div className="flex items-center justify-between h-24 lg:h-32 px-4">
           {/* ロゴ */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -64,7 +64,7 @@ const Header = () => {
 
           {/* デスクトップナビゲーション */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-10">
               {NAVIGATION.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -73,7 +73,7 @@ const Header = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="font-accent font-semibold text-sm tracking-wider transition-all duration-300 relative group hover:text-white px-6 py-3 rounded-full"
+                  className="font-accent font-semibold text-base lg:text-lg tracking-wider transition-all duration-300 relative group hover:text-white px-8 py-4 rounded-full"
                   style={{ 
                     color: 'var(--color-gray-darker)',
                     border: '2px solid transparent'

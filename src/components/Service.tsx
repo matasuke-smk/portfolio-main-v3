@@ -164,7 +164,7 @@ const Service = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 lg:mt-32"
+          className="mt-32 lg:mt-48"
         >
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-16 rounded-3xl border border-gray-200 relative overflow-hidden">
             {/* 背景装飾 */}
