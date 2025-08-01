@@ -166,6 +166,7 @@ const Works = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center mt-20 lg:mt-32"
         >
+          <br />
           <p className="text-sm" style={{ color: 'var(--color-gray-medium)' }}>
             ※ こちらはデモのプロジェクトです。実際の制作実績については、お問い合わせください。
           </p>
