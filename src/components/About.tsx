@@ -93,7 +93,7 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 hover:shadow-lg group"
+                  className="flex items-center space-x-5 p-4 rounded-xl transition-all duration-300 hover:shadow-lg group"
                   style={{ 
                     backgroundColor: 'rgba(0, 191, 255, 0.03)',
                     border: '1px solid rgba(0, 191, 255, 0.1)'
