@@ -160,7 +160,8 @@ const Header = () => {
             height: 'calc(100vh - 6rem)',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-evenly',
+            justifyContent: 'flex-start',
+            gap: '1.5rem',
             backgroundColor: '#f5f5f5'
           }}>
             {/* HOME */}
@@ -172,7 +173,7 @@ const Header = () => {
                   handleNavClick('#home');
                 }}
                 className="block hover:opacity-70 transition-opacity duration-200"
-                style={{ padding: '0.5rem 0' }}
+                style={{ padding: '0.25rem 0' }}
               >
                 <div style={{ 
                   fontSize: '1.75rem',
