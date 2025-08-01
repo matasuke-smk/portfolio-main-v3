@@ -33,6 +33,7 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
+    console.log('handleNavClick called with:', href);
     setIsMobileMenuOpen(false);
     
     if (href.startsWith('#')) {
@@ -45,6 +46,9 @@ const Header = () => {
       }
     }
   };
+
+  // デバッグ用のログ
+  console.log('Header component rendered, isMobileMenuOpen:', isMobileMenuOpen);
 
   return (
     <header
@@ -123,7 +127,10 @@ const Header = () => {
           <motion.button
             className="lg:hidden p-2 transition-colors duration-300 hover:opacity-80"
             style={{ color: 'var(--color-gray-dark)' }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              console.log('Menu button clicked, current state:', isMobileMenuOpen);
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -134,20 +141,15 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - ヘッダー常時表示版 */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[100] lg:hidden overflow-hidden"
-            style={{ 
-              backgroundColor: '#f5f5f5',
-              paddingTop: '6rem' // ヘッダーの高さ分を確実に確保
-            }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          >
+      {/* モバイルメニュー - シンプル版（デバッグ用） */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[100] lg:hidden"
+          style={{ 
+            backgroundColor: '#f5f5f5',
+            paddingTop: '6rem'
+          }}
+        >
             <div style={{ 
               padding: '2rem 1.5rem',
               height: 'calc(100vh - 6rem)',
@@ -267,9 +269,9 @@ const Header = () => {
                 </a>
               </motion.div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
