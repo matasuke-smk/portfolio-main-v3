@@ -68,7 +68,7 @@ export const WORKS = [
     period: '2023年12月 (2週間)',
     technologies: ['Next.js', 'Tailwind CSS', 'Chart.js'],
     description: 'コンバージョンを重視したSaaSプロダクトのランディングページ',
-    image: '/images/works/landing-saas.jpg',
+    image: '/images/work-1.svg',
     url: '#',
   },
   {
@@ -79,7 +79,7 @@ export const WORKS = [
     period: '2024年1月 (6週間)',
     technologies: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
     description: 'ブランドの世界観を表現したアパレル向けECサイト',
-    image: '/images/works/ec-apparel.jpg',
+    image: '/images/work-2.svg',
     url: '#',
   },
   {
@@ -90,7 +90,7 @@ export const WORKS = [
     period: '2024年2月 (2週間)',
     technologies: ['React', 'CSS Modules', 'GSAP'],
     description: 'ミニマルなデザインでクリエイターの作品を効果的に魅せるポートフォリオサイト',
-    image: '/images/works/portfolio-designer.jpg',
+    image: '/images/work-3.svg',
     url: '#',
   },
 ];

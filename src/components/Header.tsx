@@ -138,9 +138,9 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-60 lg:hidden overflow-hidden"
+            className="fixed inset-0 z-[100] lg:hidden overflow-hidden"
             style={{ 
-              backgroundColor: '#ff0000', // 一時的に赤にしてデバッグ
+              backgroundColor: '#f5f5f5',
               paddingTop: '6rem' // ヘッダーの高さ分を確実に確保
             }}
             initial={{ opacity: 0, y: -20 }}
