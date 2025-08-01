@@ -124,20 +124,43 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 right-0 bg-white z-40 lg:hidden shadow-lg border-t border-gray-200"
-            initial={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 bg-white z-40 lg:hidden shadow-lg"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <nav className="py-4">
+            <nav className="py-6 px-6">
               <ul className="space-y-0">
-                {NAVIGATION.map((item, index) => (
+                {/* HOME - シンプル表示 */}
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0 * 0.05 }}
+                >
+                  <a
+                    href="#home"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#home');
+                    }}
+                    className="block py-4 text-gray-900 hover:text-accent transition-colors duration-200"
+                  >
+                    <span className="font-accent font-medium text-lg">HOME</span>
+                  </a>
+                </motion.li>
+
+                {/* その他のメニュー項目 - サブテキスト付き */}
+                {[
+                  { name: 'WORKS', href: '#works', sub: '実績' },
+                  { name: 'ABOUT', href: '#about', sub: '事業概要' },
+                  { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
+                ].map((item, index) => (
                   <motion.li
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
                   >
                     <a
                       href={item.href}
@@ -145,35 +168,40 @@ const Header = () => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block px-6 py-4 text-gray-800 hover:bg-gray-50 hover:text-accent border-b border-gray-100 last:border-b-0 transition-all duration-200"
+                      className="block py-4 border-b border-gray-200 hover:text-accent transition-colors duration-200"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-accent font-medium text-base tracking-wide">
+                        <span className="font-accent font-medium text-lg text-gray-900">
                           {item.name}
                         </span>
-                        <motion.div
-                          className="w-1.5 h-1.5 bg-gray-400 rounded-full"
-                          whileHover={{ 
-                            scale: 1.5,
-                            backgroundColor: 'var(--color-accent)'
-                          }}
-                          transition={{ duration: 0.2 }}
-                        />
+                        <span className="text-sm text-gray-600 font-medium">
+                          {item.sub}
+                        </span>
                       </div>
                     </a>
                   </motion.li>
                 ))}
+
+                {/* お問い合わせボタン */}
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 4 * 0.05 }}
+                  className="mt-6"
+                >
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#contact');
+                    }}
+                    className="block py-4 px-6 bg-black text-white text-center font-accent font-medium text-lg rounded-none hover:bg-gray-800 transition-colors duration-200"
+                  >
+                    お問い合わせ
+                  </a>
+                </motion.li>
               </ul>
             </nav>
-            
-            {/* メニュー下部の装飾 */}
-            <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-1 h-1 bg-accent rounded-full opacity-60"></div>
-                <p className="text-xs text-gray-500 font-medium">MATASUKE PORTFOLIO</p>
-                <div className="w-1 h-1 bg-accent rounded-full opacity-60"></div>
-              </div>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
