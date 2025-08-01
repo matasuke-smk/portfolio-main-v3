@@ -134,22 +134,21 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - カスタムデザイン */}
+      {/* モバイルメニュー - 修正版 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed top-24 left-0 right-0 bottom-0 z-30 lg:hidden"
             style={{ 
-              backgroundColor: '#f5f5f5',
-              paddingTop: '6rem' // ヘッダーの高さ分
+              backgroundColor: '#f5f5f5'
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="px-12 py-16 h-full flex flex-col justify-center">
-              <div className="space-y-12">
+            <div className="px-6 py-8 h-full flex flex-col justify-around">
+              <div className="space-y-16">
                 {/* HOME - シンプル表示 */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -162,9 +161,9 @@ const Header = () => {
                       e.preventDefault();
                       handleNavClick('#home');
                     }}
-                    className="block py-4 hover:opacity-70 transition-opacity duration-200"
+                    className="block py-6 hover:opacity-70 transition-opacity duration-200"
                   >
-                    <div className="text-3xl font-semibold text-black text-left">
+                    <div className="text-2xl font-semibold text-black">
                       HOME
                     </div>
                   </a>
@@ -188,13 +187,13 @@ const Header = () => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block py-4 hover:opacity-70 transition-opacity duration-200"
+                      className="block py-6 hover:opacity-70 transition-opacity duration-200"
                     >
-                      <div className="flex items-center justify-between relative">
-                        <span className="text-3xl font-semibold text-black text-left">
+                      <div className="flex items-center justify-between relative overflow-hidden">
+                        <span className="text-2xl font-semibold text-black bg-gray-100 pr-2">
                           {item.name}
                         </span>
-                        <span className="text-lg text-gray-600 font-medium text-right">
+                        <span className="text-base text-gray-600 font-medium bg-gray-100 pl-2">
                           {item.sub}
                         </span>
                         {/* 点線 */}
@@ -223,7 +222,7 @@ const Header = () => {
                       e.preventDefault();
                       handleNavClick('#contact');
                     }}
-                    className="block py-5 px-8 bg-black text-white text-center font-medium text-2xl hover:bg-gray-800 transition-colors duration-200 mx-8"
+                    className="block py-4 px-6 bg-black text-white text-center font-medium text-xl hover:bg-gray-800 transition-colors duration-200"
                     style={{
                       borderRadius: '0px'
                     }}
