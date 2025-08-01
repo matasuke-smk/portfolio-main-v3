@@ -158,11 +158,7 @@ const Header = () => {
               justifyContent: 'space-evenly'
             }}>
               {/* HOME - シンプル表示 */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
+              <div>
                 <a
                   href="#home"
                   onClick={(e) => {
@@ -181,7 +177,7 @@ const Header = () => {
                     HOME
                   </div>
                 </a>
-              </motion.div>
+              </div>
 
               {/* メインメニューリスト */}
               {[
@@ -189,12 +185,7 @@ const Header = () => {
                 { name: 'ABOUT', href: '#about', sub: '自己紹介' },
                 { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
               ].map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                >
+                <div key={item.name}>
                   <a
                     href={item.href}
                     onClick={(e) => {
@@ -243,15 +234,11 @@ const Header = () => {
                       }} />
                     </div>
                   </a>
-                </motion.div>
+                </div>
               ))}
 
               {/* お問い合わせボタン */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.6 }}
-              >
+              <div>
                 <a
                   href="#contact"
                   onClick={(e) => {
@@ -267,7 +254,7 @@ const Header = () => {
                 >
                   お問い合わせ
                 </a>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
