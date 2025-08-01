@@ -42,7 +42,7 @@ const Header = () => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        const elementPosition = element.offsetTop;
+        const elementPosition = (element as HTMLElement).offsetTop;
         const offsetPosition = elementPosition - 96; // 6rem (96px) ヘッダーの高さ分のオフセット
         
         window.scrollTo({
