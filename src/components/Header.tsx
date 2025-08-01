@@ -42,9 +42,12 @@ const Header = () => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - 96; // 6rem (96px) ヘッダーの高さ分のオフセット
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }
     }
