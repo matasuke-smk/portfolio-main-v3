@@ -134,7 +134,7 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="px-10 py-8">
+            <div className="px-6 py-8 max-w-md mx-auto">
               {/* HOME - シンプル表示 */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
