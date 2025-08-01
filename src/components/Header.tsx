@@ -120,114 +120,120 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - 参考画像デザイン完全準拠 */}
+      {/* モバイルメニュー - 全画面表示 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 right-0 z-40 lg:hidden"
+            className="fixed inset-0 z-40 lg:hidden"
             style={{ 
               backgroundColor: '#f5f5f5',
-              minHeight: '100vh'
+              paddingTop: '6rem' // ヘッダーの高さ分
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="px-6 py-8 max-w-md mx-auto">
-              {/* HOME - シンプル表示 */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="mb-8"
-              >
-                <div className="text-xl font-semibold text-black">
-                  HOME
-                </div>
-              </motion.div>
+            <div className="px-8 py-12 h-full flex flex-col justify-between">
+              {/* メニューコンテンツ上部 */}
+              <div className="flex-1 flex flex-col">
+                {/* HOME - シンプル表示 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  className="mb-12"
+                >
+                  <div className="text-2xl font-semibold text-black">
+                    HOME
+                  </div>
+                </motion.div>
 
-              {/* メインメニューリスト */}
-              <div className="space-y-0">
-                {[
-                  { name: 'SERVICE', href: '#service', sub: 'サービス内容' },
-                  { name: 'WORKS', href: '#works', sub: '実績' },
-                  { name: 'HOW TO ORDER', href: '#service', sub: 'ご依頼方法' },
-                  { name: 'ABOUT', href: '#about', sub: '事業概要' }
-                ].map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                  >
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(item.href);
-                      }}
-                      className="block py-6 border-b border-gray-300 hover:opacity-70 transition-opacity duration-200"
+                {/* メインメニューリスト */}
+                <div className="space-y-0 flex-1">
+                  {[
+                    { name: 'SERVICE', href: '#service', sub: 'サービス内容' },
+                    { name: 'WORKS', href: '#works', sub: '実績' },
+                    { name: 'HOW TO ORDER', href: '#service', sub: 'ご依頼方法' },
+                    { name: 'ABOUT', href: '#about', sub: '事業概要' }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="text-xl font-semibold text-black">
-                          {item.name}
-                        </span>
-                        <span className="text-sm text-gray-600 font-medium">
-                          {item.sub}
-                        </span>
-                      </div>
-                    </a>
-                  </motion.div>
-                ))}
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(item.href);
+                        }}
+                        className="block py-8 border-b border-gray-300 hover:opacity-70 transition-opacity duration-200"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-semibold text-black">
+                            {item.name}
+                          </span>
+                          <span className="text-base text-gray-600 font-medium">
+                            {item.sub}
+                          </span>
+                        </div>
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
-              {/* お問い合わせボタン */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.6 }}
-                className="mt-8 mb-8"
-              >
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick('#contact');
-                  }}
-                  className="block py-4 px-6 bg-black text-white text-center font-medium text-lg hover:bg-gray-800 transition-colors duration-200"
-                  style={{
-                    borderRadius: '0px'
-                  }}
+              {/* メニューコンテンツ下部 */}
+              <div className="mt-auto">
+                {/* お問い合わせボタン */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                  className="mb-12"
                 >
-                  お問い合わせ
-                </a>
-              </motion.div>
-
-              {/* サブメニューリスト */}
-              <div className="space-y-0">
-                {[
-                  { name: 'NOTES', sub: '制作ノート' },
-                  { name: 'BLOG', sub: 'ブログ' }
-                ].map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#contact');
+                    }}
+                    className="block py-5 px-8 bg-black text-white text-center font-medium text-xl hover:bg-gray-800 transition-colors duration-200"
+                    style={{
+                      borderRadius: '0px'
+                    }}
                   >
-                    <div className="block py-6 border-b border-gray-300 opacity-60">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xl font-semibold text-black">
-                          {item.name}
-                        </span>
-                        <span className="text-sm text-gray-600 font-medium">
-                          {item.sub}
-                        </span>
+                    お問い合わせ
+                  </a>
+                </motion.div>
+
+                {/* サブメニューリスト */}
+                <div className="space-y-0">
+                  {[
+                    { name: 'NOTES', sub: '制作ノート' },
+                    { name: 'BLOG', sub: 'ブログ' }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                    >
+                      <div className="block py-8 border-b border-gray-300 opacity-60">
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-semibold text-black">
+                            {item.name}
+                          </span>
+                          <span className="text-base text-gray-600 font-medium">
+                            {item.sub}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
