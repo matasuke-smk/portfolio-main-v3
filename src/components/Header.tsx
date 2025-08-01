@@ -18,17 +18,30 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // スクロール制御のためのuseEffect
+  // スクロール制御のためのuseEffect（改善版）
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      // メニューが開いているときのみページスクロールを無効化
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
     } else {
-      document.body.style.overflow = 'unset';
+      // メニューが閉じるときは元の位置に戻す
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
 
     // クリーンアップ
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -50,9 +63,9 @@ const Header = () => {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{ 
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        borderBottom: isScrolled ? '1px solid var(--color-gray-light)' : 'none'
+        backgroundColor: isScrolled || isMobileMenuOpen ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+        backdropFilter: isScrolled || isMobileMenuOpen ? 'blur(10px)' : 'none',
+        borderBottom: isScrolled || isMobileMenuOpen ? '1px solid var(--color-gray-light)' : 'none'
       }}
     >
       <div className="container-section" style={{ maxWidth: '1200px' }}>
@@ -134,11 +147,11 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - 完全修正版 */}
+      {/* モバイルメニュー - ヘッダー常時表示版 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-30 lg:hidden overflow-hidden"
+            className="fixed inset-0 z-40 lg:hidden overflow-hidden"
             style={{ 
               backgroundColor: '#f5f5f5',
               paddingTop: '6rem' // ヘッダーの高さ分を確実に確保
