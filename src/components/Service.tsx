@@ -107,16 +107,16 @@ const Service = () => {
                     {service.features.map((feature, featureIndex) => (
                       <motion.div
                         key={featureIndex}
-                        className="flex items-start space-x-4 p-3 rounded-xl hover:bg-accent/5 transition-colors duration-300 group/item"
+                        className="flex items-start space-x-3 p-2 rounded-xl hover:bg-accent/5 transition-colors duration-300 group/item"
                         whileHover={{ x: 4 }}
                       >
                         <motion.div
-                          className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+                          className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-1"
                           style={{ backgroundColor: 'var(--color-accent)' }}
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <Check size={14} className="text-white" />
+                          <Check size={12} className="text-white" />
                         </motion.div>
                         <span className="text-gray-700 text-base leading-relaxed group-hover/item:text-gray-900 transition-colors duration-300">
                           {feature}

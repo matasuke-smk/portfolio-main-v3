@@ -115,14 +115,6 @@ const About = () => {
                     {skill}
                   </span>
                   
-                  {/* 装飾要素 */}
-                  <motion.div
-                    className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ x: -10 }}
-                    whileHover={{ x: 0 }}
-                  >
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--color-accent)' }} />
-                  </motion.div>
                 </motion.div>
               ))}
             </motion.div>

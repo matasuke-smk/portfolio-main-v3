@@ -23,26 +23,207 @@ const Hero = () => {
         background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f0f2f5 100%)'
       }}
     >
-      {/* 幾何学的背景パターン */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full border-2" style={{ borderColor: 'var(--color-accent)' }} />
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full border-2" style={{ borderColor: 'var(--color-gray-dark)' }} />
-        <div className="absolute bottom-1/4 left-1/3 w-48 h-48 rounded-full border-2" style={{ borderColor: 'var(--color-accent)' }} />
+      {/* 動く幾何学的背景パターン */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* 大きな円 - ゆっくり回転 */}
+        <motion.div 
+          className="absolute w-96 h-96 border-2 rounded-full opacity-[0.12]"
+          style={{ 
+            borderColor: 'var(--color-accent)',
+            top: '20%',
+            left: '15%'
+          }}
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 40, repeat: Infinity, ease: "linear" },
+            scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 中サイズの円 - 逆回転 */}
+        <motion.div 
+          className="absolute w-64 h-64 border-2 rounded-full opacity-[0.10]"
+          style={{ 
+            borderColor: 'var(--color-gray-dark)',
+            top: '30%',
+            right: '20%'
+          }}
+          animate={{ 
+            rotate: [360, 0],
+            x: [0, 20, 0],
+            y: [0, -10, 0]
+          }}
+          transition={{ 
+            rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+            x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+            y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 小さな円 - 浮遊 */}
+        <motion.div 
+          className="absolute w-48 h-48 border-2 rounded-full opacity-[0.08]"
+          style={{ 
+            borderColor: 'var(--color-accent)',
+            bottom: '25%',
+            left: '30%'
+          }}
+          animate={{ 
+            y: [0, -30, 0],
+            x: [0, 15, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ 
+            y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+            x: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 25, repeat: Infinity, ease: "linear" }
+          }}
+        />
+        
+        {/* 三角形 */}
+        <motion.div 
+          className="absolute w-0 h-0 opacity-[0.07]"
+          style={{
+            borderLeft: '40px solid transparent',
+            borderRight: '40px solid transparent',
+            borderBottom: '70px solid var(--color-accent)',
+            top: '60%',
+            right: '40%'
+          }}
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 35, repeat: Infinity, ease: "linear" },
+            scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 四角形 */}
+        <motion.div 
+          className="absolute w-16 h-16 border-2 opacity-[0.09]"
+          style={{ 
+            borderColor: 'var(--color-gray-dark)',
+            top: '15%',
+            right: '15%'
+          }}
+          animate={{ 
+            rotate: [0, 90, 180, 270, 360],
+            x: [0, 10, 0, -10, 0],
+            y: [0, -5, 0, 5, 0]
+          }}
+          transition={{ 
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+            x: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+            y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 六角形 */}
+        <motion.div 
+          className="absolute w-12 h-12 opacity-[0.08]"
+          style={{
+            background: 'var(--color-accent)',
+            clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
+            bottom: '40%',
+            right: '25%'
+          }}
+          animate={{ 
+            rotate: [0, -360],
+            scale: [1, 1.3, 1],
+            x: [0, -20, 0],
+            y: [0, 15, 0]
+          }}
+          transition={{ 
+            rotate: { duration: 45, repeat: Infinity, ease: "linear" },
+            scale: { duration: 9, repeat: Infinity, ease: "easeInOut" },
+            x: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+            y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 動く線 */}
+        <motion.div 
+          className="absolute h-px opacity-[0.12]"
+          style={{ 
+            backgroundColor: 'var(--color-accent)',
+            top: '45%',
+            left: '20%',
+            width: '200px'
+          }}
+          animate={{ 
+            scaleX: [1, 1.5, 1],
+            rotate: [0, 10, -10, 0]
+          }}
+          transition={{ 
+            scaleX: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 縦線 */}
+        <motion.div 
+          className="absolute w-px opacity-[0.10]"
+          style={{ 
+            backgroundColor: 'var(--color-gray-dark)',
+            top: '20%',
+            left: '60%',
+            height: '150px'
+          }}
+          animate={{ 
+            scaleY: [1, 1.3, 1],
+            x: [0, 5, -5, 0]
+          }}
+          transition={{ 
+            scaleY: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+            x: { duration: 10, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        {/* 浮遊する点 */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 rounded-full opacity-[0.15]"
+            style={{ 
+              backgroundColor: 'var(--color-accent)',
+              top: `${20 + (i * 10)}%`,
+              left: `${10 + (i * 11)}%`
+            }}
+            animate={{ 
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ 
+              y: { duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
+              x: { duration: 4 + i * 0.3, repeat: Infinity, ease: "easeInOut" },
+              scale: { duration: 2 + i * 0.2, repeat: Infinity, ease: "easeInOut" }
+            }}
+          />
+        ))}
       </div>
       
-      {/* ドットパターン */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `radial-gradient(circle, var(--color-accent) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px'
-      }} />
-      
-      {/* ミニマルな装飾線 */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/3 w-px h-32 opacity-10" style={{ backgroundColor: 'var(--color-accent)' }} />
-        <div className="absolute bottom-1/3 right-1/3 w-32 h-px opacity-10" style={{ backgroundColor: 'var(--color-accent)' }} />
-        <div className="absolute top-1/2 left-1/4 w-2 h-2 rounded-full opacity-20" style={{ backgroundColor: 'var(--color-accent)' }} />
-        <div className="absolute bottom-1/4 right-1/2 w-2 h-2 rounded-full opacity-20" style={{ backgroundColor: 'var(--color-accent)' }} />
-      </div>
+      {/* 動的ドットパターン */}
+      <motion.div 
+        className="absolute inset-0 opacity-[0.04]" 
+        style={{
+          backgroundImage: `radial-gradient(circle, var(--color-accent) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '30px 30px', '0px 0px']
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
 
       <div className="relative z-10 container-section text-center">
         <div className="space-y-16 lg:space-y-20 py-8">

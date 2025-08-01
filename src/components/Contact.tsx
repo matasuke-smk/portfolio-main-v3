@@ -333,7 +333,8 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 lg:mt-24 text-center"
+          className="text-center"
+          style={{ marginTop: '8rem' }}
         >
           <p className="text-sm text-gray-500 leading-relaxed">
             お急ぎの場合は、SNSのDMでもお気軽にお声がけください。<br />

@@ -39,7 +39,7 @@ const Works = () => {
             WORKS
           </h2>
           <p className="text-lg max-w-2xl mx-auto section-description" style={{ color: 'var(--color-gray-dark)' }}>
-            これまでに制作した架空のプロジェクトです。<br />
+            これまでに制作したデモのプロジェクトです。<br />
             実際の案件対応力をお確かめください。
           </p>
         </motion.div>
@@ -158,7 +158,7 @@ const Works = () => {
           className="text-center mt-20 lg:mt-32"
         >
           <p className="text-sm" style={{ color: 'var(--color-gray-medium)' }}>
-            ※ こちらは架空のプロジェクトです。実際の制作実績については、お問い合わせください。
+            ※ こちらはデモのプロジェクトです。実際の制作実績については、お問い合わせください。
           </p>
         </motion.div>
       </div>

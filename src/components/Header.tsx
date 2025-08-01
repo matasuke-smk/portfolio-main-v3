@@ -136,60 +136,56 @@ const Header = () => {
             
             {/* メニューパネル */}
             <motion.div
-              className="fixed top-20 right-4 w-72 bg-white rounded-2xl shadow-2xl z-50 lg:hidden border border-gray-100"
-              initial={{ opacity: 0, x: '100%', scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: '100%', scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed inset-0 bg-black z-50 lg:hidden flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {/* メニューヘッダー */}
-              <div className="px-6 py-4 border-b border-gray-100">
-                <h3 className="font-accent font-bold text-lg" style={{ color: 'var(--color-gray-darker)' }}>
-                  Menu
-                </h3>
-              </div>
-              
-              <nav className="flex flex-col py-4">
-                {NAVIGATION.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    }}
-                    className="font-accent font-semibold text-base tracking-wider text-gray-700 hover:text-white hover:bg-accent mx-4 my-1 px-6 py-4 rounded-xl transition-all duration-300 relative overflow-hidden group"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {/* 背景グラデーション */}
-                    <motion.div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        background: 'linear-gradient(135deg, var(--color-accent) 0%, rgba(0, 191, 255, 0.8) 100%)'
+              <motion.nav
+                className="w-full max-w-sm mx-auto px-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
+                <div className="space-y-2">
+                  {NAVIGATION.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.href);
                       }}
-                    />
-                    
-                    <span className="relative z-10">{item.name}</span>
-                    
-                    {/* 装飾アイコン */}
-                    <motion.div
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ backgroundColor: 'white' }}
-                      initial={{ x: -10, opacity: 0 }}
-                      whileHover={{ x: 0, opacity: 1 }}
-                    />
-                  </motion.a>
-                ))}
-              </nav>
-              
-              {/* メニューフッター */}
-              <div className="px-6 py-4 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-500">MATASUKE Portfolio</p>
-              </div>
+                      className="block w-full py-6 px-8 text-center font-accent font-bold text-2xl tracking-wider text-white hover:text-black border-2 border-white hover:border-accent hover:bg-accent rounded-2xl transition-all duration-300 relative overflow-hidden group"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <motion.div
+                        className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                      <span className="relative z-10">{item.name}</span>
+                    </motion.a>
+                  ))}
+                </div>
+                
+                {/* 閉じるボタン */}
+                <motion.button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-12 w-full py-4 px-8 text-center font-accent font-semibold text-lg text-gray-400 hover:text-white border border-gray-600 hover:border-white rounded-2xl transition-all duration-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  CLOSE
+                </motion.button>
+              </motion.nav>
             </motion.div>
           </>
         )}
