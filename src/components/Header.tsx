@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-70 transition-all duration-300"
       style={{ 
         backgroundColor: isScrolled || isMobileMenuOpen ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
         backdropFilter: isScrolled || isMobileMenuOpen ? 'blur(10px)' : 'none',
@@ -151,7 +151,7 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 lg:hidden overflow-hidden"
+            className="fixed inset-0 z-60 lg:hidden overflow-hidden"
             style={{ 
               backgroundColor: '#f5f5f5',
               paddingTop: '6rem' // ヘッダーの高さ分を確実に確保

@@ -61,7 +61,7 @@ export const STRENGTHS = [
 // デモのプロジェクト実績
 export const WORKS = [
   {
-    id: 'landing-saas',
+    id: '1',
     title: 'CloudSync Pro',
     category: 'ランディングページ',
     industry: 'SaaS',
@@ -72,7 +72,7 @@ export const WORKS = [
     url: '#',
   },
   {
-    id: 'ec-apparel',
+    id: '2',
     title: 'Fashion Brand Store',
     category: 'ECサイト',
     industry: 'アパレル',
@@ -83,7 +83,7 @@ export const WORKS = [
     url: '#',
   },
   {
-    id: 'portfolio-designer',
+    id: '3',
     title: 'Creative Designer Portfolio',
     category: 'ポートフォリオサイト',
     industry: 'デザイナー',
