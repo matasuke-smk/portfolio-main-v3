@@ -64,7 +64,7 @@ const Works = () => {
                 {/* プロジェクト画像 */}
                 <div className="relative h-64 overflow-hidden rounded-t-lg">
                   <img
-                    src={`/images/work-${work.id}.svg`}
+                    src={`${process.env.NODE_ENV === 'production' ? '/portfolio-main-v3' : ''}/images/work-${work.id}.svg`}
                     alt={work.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
