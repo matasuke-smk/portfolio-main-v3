@@ -107,7 +107,8 @@ const Service = () => {
                     {service.features.map((feature, featureIndex) => (
                       <motion.div
                         key={featureIndex}
-                        className="flex items-start space-x-4 p-2 rounded-xl hover:bg-accent/5 transition-colors duration-300 group/item"
+                        className="flex items-start p-2 rounded-xl hover:bg-accent/5 transition-colors duration-300 group/item"
+                        style={{ gap: '1rem' }}
                         whileHover={{ x: 4 }}
                       >
                         <motion.div
