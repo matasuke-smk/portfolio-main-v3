@@ -18,6 +18,20 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // スクロール制御のためのuseEffect
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // クリーンアップ
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     
@@ -120,7 +134,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - 全画面表示 */}
+      {/* モバイルメニュー - カスタムデザイン */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -134,65 +148,74 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="px-8 py-12 h-full flex flex-col justify-between">
-              {/* メニューコンテンツ上部 */}
-              <div className="flex-1 flex flex-col">
+            <div className="px-12 py-16 h-full flex flex-col justify-center">
+              <div className="space-y-12">
                 {/* HOME - シンプル表示 */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="mb-12"
                 >
-                  <div className="text-2xl font-semibold text-black">
-                    HOME
-                  </div>
+                  <a
+                    href="#home"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#home');
+                    }}
+                    className="block py-4 hover:opacity-70 transition-opacity duration-200"
+                  >
+                    <div className="text-3xl font-semibold text-black text-left">
+                      HOME
+                    </div>
+                  </a>
                 </motion.div>
 
                 {/* メインメニューリスト */}
-                <div className="space-y-0 flex-1">
-                  {[
-                    { name: 'SERVICE', href: '#service', sub: 'サービス内容' },
-                    { name: 'WORKS', href: '#works', sub: '実績' },
-                    { name: 'HOW TO ORDER', href: '#service', sub: 'ご依頼方法' },
-                    { name: 'ABOUT', href: '#about', sub: '事業概要' }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+                {[
+                  { name: 'WORK', href: '#works', sub: '実績' },
+                  { name: 'ABOUT', href: '#about', sub: '自己紹介' },
+                  { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+                  >
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.href);
+                      }}
+                      className="block py-4 hover:opacity-70 transition-opacity duration-200"
                     >
-                      <a
-                        href={item.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(item.href);
-                        }}
-                        className="block py-8 border-b border-gray-300 hover:opacity-70 transition-opacity duration-200"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-2xl font-semibold text-black">
-                            {item.name}
-                          </span>
-                          <span className="text-base text-gray-600 font-medium">
-                            {item.sub}
-                          </span>
-                        </div>
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+                      <div className="flex items-center justify-between relative">
+                        <span className="text-3xl font-semibold text-black text-left">
+                          {item.name}
+                        </span>
+                        <span className="text-lg text-gray-600 font-medium text-right">
+                          {item.sub}
+                        </span>
+                        {/* 点線 */}
+                        <div 
+                          className="absolute top-1/2 left-0 right-0 border-b border-dotted border-gray-400"
+                          style={{
+                            transform: 'translateY(-50%)',
+                            zIndex: -1
+                          }}
+                        />
+                      </div>
+                    </a>
+                  </motion.div>
+                ))}
 
-              {/* メニューコンテンツ下部 */}
-              <div className="mt-auto">
                 {/* お問い合わせボタン */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.6 }}
-                  className="mb-12"
+                  className="mt-16"
                 >
                   <a
                     href="#contact"
@@ -200,7 +223,7 @@ const Header = () => {
                       e.preventDefault();
                       handleNavClick('#contact');
                     }}
-                    className="block py-5 px-8 bg-black text-white text-center font-medium text-xl hover:bg-gray-800 transition-colors duration-200"
+                    className="block py-5 px-8 bg-black text-white text-center font-medium text-2xl hover:bg-gray-800 transition-colors duration-200 mx-8"
                     style={{
                       borderRadius: '0px'
                     }}
@@ -208,32 +231,6 @@ const Header = () => {
                     お問い合わせ
                   </a>
                 </motion.div>
-
-                {/* サブメニューリスト */}
-                <div className="space-y-0">
-                  {[
-                    { name: 'NOTES', sub: '制作ノート' },
-                    { name: 'BLOG', sub: 'ブログ' }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
-                    >
-                      <div className="block py-8 border-b border-gray-300 opacity-60">
-                        <div className="flex items-center justify-between">
-                          <span className="text-2xl font-semibold text-black">
-                            {item.name}
-                          </span>
-                          <span className="text-base text-gray-600 font-medium">
-                            {item.sub}
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
               </div>
             </div>
           </motion.div>
