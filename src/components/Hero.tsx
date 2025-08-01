@@ -8,9 +8,12 @@ const Hero = () => {
   const scrollToWorks = () => {
     const worksSection = document.querySelector('#works');
     if (worksSection) {
-      worksSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+      const elementPosition = (worksSection as HTMLElement).offsetTop;
+      const offsetPosition = elementPosition - 96; // 6rem (96px) ヘッダーの高さ分のオフセット
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
     }
   };
@@ -384,9 +387,12 @@ const Hero = () => {
                 e.preventDefault();
                 const contactSection = document.querySelector('#contact');
                 if (contactSection) {
-                  contactSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
+                  const elementPosition = (contactSection as HTMLElement).offsetTop;
+                  const offsetPosition = elementPosition - 96; // 6rem (96px) ヘッダーの高さ分のオフセット
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                   });
                 }
               }}
@@ -446,7 +452,7 @@ const Hero = () => {
 
       {/* スクロール促進アニメーション */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="absolute bottom-16 lg:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.5 }}

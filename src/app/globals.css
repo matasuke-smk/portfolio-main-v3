@@ -217,3 +217,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto !important;
   display: block !important;
 }
+
+/* カテゴリータグの日本語テキスト最適化 */
+.category-tag {
+  font-family: var(--font-noto-sans-jp), -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: normal !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  white-space: nowrap !important;
+}
