@@ -63,7 +63,7 @@ export const WORKS = [
   {
     id: '1',
     title: 'CloudSync Pro',
-    category: 'ランディングページ',
+    category: ' ランディングページ ',
     industry: 'SaaS',
     period: '2023年12月 (2週間)',
     technologies: ['Next.js', 'Tailwind CSS', 'Chart.js'],
@@ -74,7 +74,7 @@ export const WORKS = [
   {
     id: '2',
     title: 'Fashion Brand Store',
-    category: 'ECサイト',
+    category: ' ECサイト ',
     industry: 'アパレル',
     period: '2024年1月 (6週間)',
     technologies: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
@@ -85,7 +85,7 @@ export const WORKS = [
   {
     id: '3',
     title: 'Creative Designer Portfolio',
-    category: 'ポートフォリオサイト',
+    category: ' ポートフォリオサイト ',
     industry: 'デザイナー',
     period: '2024年2月 (2週間)',
     technologies: ['React', 'CSS Modules', 'GSAP'],
