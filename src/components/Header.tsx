@@ -117,7 +117,7 @@ const Header = () => {
                       width: '80%'
                     }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
+                  ></motion.div>
                 </motion.a>
               ))}
             </div>
@@ -231,7 +231,7 @@ const Header = () => {
                         borderBottom: '1px dotted #999999',
                         transform: 'translateY(-50%)',
                         zIndex: 1
-                      }} />
+                      }}></div>
                     </div>
                   </a>
                 </div>
