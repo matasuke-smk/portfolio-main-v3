@@ -172,7 +172,7 @@ const Header = () => {
                   handleNavClick('#home');
                 }}
                 className="block hover:opacity-70 transition-opacity duration-200"
-                style={{ padding: '1rem 0' }}
+                style={{ padding: '0.5rem 0' }}
               >
                 <div style={{ 
                   fontSize: '1.75rem',
