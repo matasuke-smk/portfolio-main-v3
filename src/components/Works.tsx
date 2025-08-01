@@ -98,7 +98,7 @@ const Works = () => {
                   
                   {/* カテゴリータグ */}
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 text-xs font-accent tracking-wider uppercase rounded-full backdrop-blur-sm" style={{ backgroundColor: 'rgba(0, 191, 255, 0.9)', color: 'white' }}>
+                    <span className="inline-block px-4 py-1 text-xs font-accent tracking-wider uppercase rounded-full backdrop-blur-sm" style={{ backgroundColor: 'rgba(0, 191, 255, 0.9)', color: 'white' }}>
                       {work.category}
                     </span>
                   </div>
