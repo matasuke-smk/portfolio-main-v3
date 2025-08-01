@@ -18,30 +18,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // スクロール制御のためのuseEffect（改善版）
+  // スクロール制御のためのuseEffect（シンプル版）
   useEffect(() => {
     if (isMobileMenuOpen) {
-      // メニューが開いているときのみページスクロールを無効化
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
     } else {
-      // メニューが閉じるときは元の位置に戻す
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      document.body.style.overflow = '';
     }
 
     // クリーンアップ
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -61,7 +48,7 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-70 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{ 
         backgroundColor: isScrolled || isMobileMenuOpen ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
         backdropFilter: isScrolled || isMobileMenuOpen ? 'blur(10px)' : 'none',
@@ -153,7 +140,7 @@ const Header = () => {
           <motion.div
             className="fixed inset-0 z-60 lg:hidden overflow-hidden"
             style={{ 
-              backgroundColor: '#f5f5f5',
+              backgroundColor: '#ff0000', // 一時的に赤にしてデバッグ
               paddingTop: '6rem' // ヘッダーの高さ分を確実に確保
             }}
             initial={{ opacity: 0, y: -20 }}

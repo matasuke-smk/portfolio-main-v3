@@ -297,7 +297,7 @@ const Hero = () => {
             >
               {HERO.description}
             </motion.p>
-            <motion.p 
+            <motion.div 
               className="font-accent text-sm sm:text-base lg:text-lg tracking-wider uppercase relative" 
               style={{ color: 'var(--color-accent)' }}
               initial={{ opacity: 0, y: 20 }}
@@ -314,7 +314,7 @@ const Hero = () => {
                 animate={{ width: '100%' }}
                 transition={{ duration: 0.8, delay: 2.2 }}
               />
-            </motion.p>
+            </motion.div>
           </motion.div>
 
           {/* CTA エリア */}
