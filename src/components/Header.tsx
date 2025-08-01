@@ -18,17 +18,20 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // スクロール制御のためのuseEffect（シンプル版）
+  // スクロール時にメニューを閉じる
   useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      window.addEventListener('scroll', handleScroll);
     }
 
-    // クリーンアップ
     return () => {
-      document.body.style.overflow = '';
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isMobileMenuOpen]);
 
@@ -47,7 +50,6 @@ const Header = () => {
     }
   };
 
-  // デバッグ用のログ
   console.log('Header component rendered, isMobileMenuOpen:', isMobileMenuOpen);
 
   return (
@@ -106,7 +108,6 @@ const Header = () => {
                 >
                   {item.name}
                   
-                  {/* シンプルなアンダーライン */}
                   <motion.div
                     className="absolute bottom-0 left-1/2 h-0.5 bg-accent"
                     style={{ 
@@ -141,124 +142,128 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - シンプル版（デバッグ用） */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-[100] lg:hidden"
-          style={{ 
-            backgroundColor: '#f5f5f5',
-            paddingTop: '6rem'
-          }}
-        >
-            <div style={{ 
-              padding: '2rem 1.5rem',
-              height: 'calc(100vh - 6rem)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-evenly'
-            }}>
-              {/* HOME - シンプル表示 */}
-              <div>
+      {/* モバイルメニュー */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed top-24 left-0 right-0 bottom-0 z-[40] lg:hidden"
+            style={{ 
+              backgroundColor: '#f5f5f5'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+          <div style={{ 
+            padding: '2rem 1.5rem',
+            height: 'calc(100vh - 6rem)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
+            backgroundColor: '#f5f5f5'
+          }}>
+            {/* HOME */}
+            <div>
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('#home');
+                }}
+                className="block hover:opacity-70 transition-opacity duration-200"
+                style={{ padding: '1rem 0' }}
+              >
+                <div style={{ 
+                  fontSize: '1.75rem',
+                  fontWeight: '600',
+                  color: '#000000',
+                  textAlign: 'left'
+                }}>
+                  HOME
+                </div>
+              </a>
+            </div>
+
+            {/* メインメニュー */}
+            {[
+              { name: 'WORK', href: '#works', sub: '実績' },
+              { name: 'ABOUT', href: '#about', sub: '自己紹介' },
+              { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
+            ].map((item, index) => (
+              <div key={item.name}>
                 <a
-                  href="#home"
+                  href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNavClick('#home');
+                    handleNavClick(item.href);
                   }}
                   className="block hover:opacity-70 transition-opacity duration-200"
                   style={{ padding: '1rem 0' }}
                 >
                   <div style={{ 
-                    fontSize: '1.75rem',
-                    fontWeight: '600',
-                    color: '#000000',
-                    textAlign: 'left'
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    position: 'relative',
+                    width: '100%'
                   }}>
-                    HOME
+                    <span style={{ 
+                      fontSize: '1.75rem',
+                      fontWeight: '600',
+                      color: '#000000',
+                      backgroundColor: '#f5f5f5',
+                      paddingRight: '0.5rem',
+                      zIndex: 2
+                    }}>
+                      {item.name}
+                    </span>
+                    <span style={{ 
+                      fontSize: '1rem',
+                      color: '#666666',
+                      fontWeight: '500',
+                      backgroundColor: '#f5f5f5',
+                      paddingLeft: '0.5rem',
+                      zIndex: 2
+                    }}>
+                      {item.sub}
+                    </span>
+                    <div style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: 0,
+                      right: 0,
+                      borderBottom: '1px dotted #999999',
+                      transform: 'translateY(-50%)',
+                      zIndex: 1
+                    }}></div>
                   </div>
                 </a>
               </div>
+            ))}
 
-              {/* メインメニューリスト */}
-              {[
-                { name: 'WORK', href: '#works', sub: '実績' },
-                { name: 'ABOUT', href: '#about', sub: '自己紹介' },
-                { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
-              ].map((item, index) => (
-                <div key={item.name}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    }}
-                    className="block hover:opacity-70 transition-opacity duration-200"
-                    style={{ padding: '1rem 0' }}
-                  >
-                    <div style={{ 
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      position: 'relative',
-                      width: '100%'
-                    }}>
-                      <span style={{ 
-                        fontSize: '1.75rem',
-                        fontWeight: '600',
-                        color: '#000000',
-                        backgroundColor: '#f5f5f5',
-                        paddingRight: '0.5rem',
-                        zIndex: 2
-                      }}>
-                        {item.name}
-                      </span>
-                      <span style={{ 
-                        fontSize: '1rem',
-                        color: '#666666',
-                        fontWeight: '500',
-                        backgroundColor: '#f5f5f5',
-                        paddingLeft: '0.5rem',
-                        zIndex: 2
-                      }}>
-                        {item.sub}
-                      </span>
-                      {/* 点線 */}
-                      <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: 0,
-                        right: 0,
-                        borderBottom: '1px dotted #999999',
-                        transform: 'translateY(-50%)',
-                        zIndex: 1
-                      }}></div>
-                    </div>
-                  </a>
-                </div>
-              ))}
-
-              {/* お問い合わせボタン */}
-              <div>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick('#contact');
-                  }}
-                  className="block bg-black text-white text-center font-medium hover:bg-gray-800 transition-colors duration-200"
-                  style={{
-                    padding: '1rem 1.5rem',
-                    fontSize: '1.25rem',
-                    borderRadius: '0px'
-                  }}
-                >
-                  お問い合わせ
-                </a>
-              </div>
+            {/* お問い合わせボタン */}
+            <div>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('#contact');
+                }}
+                className="block bg-black text-white text-center font-medium hover:bg-gray-800 transition-colors duration-200"
+                style={{
+                  padding: '1rem 1.5rem',
+                  fontSize: '1.25rem',
+                  borderRadius: '0px'
+                }}
+              >
+                お問い合わせ
+              </a>
             </div>
           </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
