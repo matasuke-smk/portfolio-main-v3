@@ -73,33 +73,32 @@ const Header = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="font-accent font-semibold tracking-wider transition-all duration-300 relative group hover:text-white rounded-full"
+                  className="font-accent font-semibold tracking-wider transition-all duration-300 relative group"
                   style={{ 
                     fontSize: '1rem',
                     padding: '0.5rem 1rem',
-                    color: 'var(--color-gray-darker)',
-                    border: '2px solid transparent'
+                    color: 'var(--color-gray-darker)'
                   }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ 
-                    scale: 1.05,
-                    backgroundColor: 'var(--color-accent)',
-                    borderColor: 'var(--color-accent)'
+                    color: 'var(--color-accent)'
                   }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   {item.name}
                   
-                  {/* グロー効果 */}
+                  {/* シンプルなアンダーライン */}
                   <motion.div
-                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                    className="absolute bottom-0 left-1/2 h-0.5 bg-accent"
                     style={{ 
-                      backgroundColor: 'var(--color-accent)',
-                      filter: 'blur(8px)',
-                      zIndex: -1
+                      width: 0,
+                      transform: 'translateX(-50%)'
                     }}
+                    whileHover={{ 
+                      width: '80%'
+                    }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   />
                 </motion.a>
               ))}
