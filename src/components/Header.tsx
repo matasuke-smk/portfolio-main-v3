@@ -120,40 +120,45 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - 参考サイト構造準拠 */}
+      {/* モバイルメニュー - 参考画像デザイン完全準拠 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 right-0 bg-white z-40 lg:hidden shadow-lg"
-            initial={{ opacity: 0, y: -10 }}
+            className="absolute top-full left-0 right-0 z-40 lg:hidden"
+            style={{ 
+              backgroundColor: '#f5f5f5',
+              minHeight: '100vh'
+            }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="py-8 px-6">
-              {/* 現在位置（パンくず相当） */}
-              <div className="mb-6">
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                  className="text-sm text-gray-500"
-                >
-                  <span>HOME</span>
-                </motion.div>
-              </div>
+            <div className="px-10 py-8">
+              {/* HOME - シンプル表示 */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="mb-8"
+              >
+                <div className="text-xl font-semibold text-black">
+                  HOME
+                </div>
+              </motion.div>
 
               {/* メインメニューリスト */}
-              <ul className="space-y-0 mb-8">
+              <div className="space-y-0">
                 {[
                   { name: 'SERVICE', href: '#service', sub: 'サービス内容' },
                   { name: 'WORKS', href: '#works', sub: '実績' },
+                  { name: 'HOW TO ORDER', href: '#service', sub: 'ご依頼方法' },
                   { name: 'ABOUT', href: '#about', sub: '事業概要' }
                 ].map((item, index) => (
-                  <motion.li
+                  <motion.div
                     key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                   >
                     <a
@@ -162,29 +167,27 @@ const Header = () => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block py-4 hover:opacity-70 transition-opacity duration-200"
+                      className="block py-6 border-b border-gray-300 hover:opacity-70 transition-opacity duration-200"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-en">
-                          <span className="font-accent font-normal text-lg text-gray-900 tracking-wide">
-                            {item.name}
-                          </span>
+                        <span className="text-xl font-semibold text-black">
+                          {item.name}
                         </span>
-                        <span className="text-ja text-sm text-gray-600 font-medium">
+                        <span className="text-sm text-gray-600 font-medium">
                           {item.sub}
                         </span>
                       </div>
                     </a>
-                  </motion.li>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
 
               {/* お問い合わせボタン */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className="mb-8"
+                transition={{ duration: 0.3, delay: 0.6 }}
+                className="mt-8 mb-8"
               >
                 <a
                   href="#contact"
@@ -192,16 +195,40 @@ const Header = () => {
                     e.preventDefault();
                     handleNavClick('#contact');
                   }}
-                  className="block py-4 px-6 bg-black text-white text-center font-medium text-base hover:bg-gray-800 transition-colors duration-200"
+                  className="block py-4 px-6 bg-black text-white text-center font-medium text-lg hover:bg-gray-800 transition-colors duration-200"
+                  style={{
+                    borderRadius: '0px'
+                  }}
                 >
-                  <span>お問い合わせ</span>
+                  お問い合わせ
                 </a>
               </motion.div>
 
-              {/* サブメニューリスト（将来的な拡張用） */}
-              <ul className="space-y-0 pt-4 border-t border-gray-100">
-                {/* 必要に応じて追加項目をここに配置 */}
-              </ul>
+              {/* サブメニューリスト */}
+              <div className="space-y-0">
+                {[
+                  { name: 'NOTES', sub: '制作ノート' },
+                  { name: 'BLOG', sub: 'ブログ' }
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                  >
+                    <div className="block py-6 border-b border-gray-300 opacity-60">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xl font-semibold text-black">
+                          {item.name}
+                        </span>
+                        <span className="text-sm text-gray-600 font-medium">
+                          {item.sub}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
