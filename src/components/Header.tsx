@@ -120,7 +120,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* モバイルメニュー - ヘッダー下ドロップダウン */}
+      {/* モバイルメニュー - 参考サイト構造準拠 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -128,39 +128,33 @@ const Header = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <nav className="py-6 px-6">
-              <ul className="space-y-0">
-                {/* HOME - シンプル表示 */}
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0 * 0.05 }}
+            <div className="py-8 px-6">
+              {/* 現在位置（パンくず相当） */}
+              <div className="mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  className="text-sm text-gray-500"
                 >
-                  <a
-                    href="#home"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#home');
-                    }}
-                    className="block py-4 text-gray-900 hover:text-accent transition-colors duration-200"
-                  >
-                    <span className="font-accent font-medium text-lg">HOME</span>
-                  </a>
-                </motion.li>
+                  <span>HOME</span>
+                </motion.div>
+              </div>
 
-                {/* その他のメニュー項目 - サブテキスト付き */}
+              {/* メインメニューリスト */}
+              <ul className="space-y-0 mb-8">
                 {[
+                  { name: 'SERVICE', href: '#service', sub: 'サービス内容' },
                   { name: 'WORKS', href: '#works', sub: '実績' },
-                  { name: 'ABOUT', href: '#about', sub: '事業概要' },
-                  { name: 'SERVICE', href: '#service', sub: 'サービス内容' }
+                  { name: 'ABOUT', href: '#about', sub: '事業概要' }
                 ].map((item, index) => (
                   <motion.li
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
+                    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                   >
                     <a
                       href={item.href}
@@ -168,40 +162,47 @@ const Header = () => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block py-4 border-b border-gray-200 hover:text-accent transition-colors duration-200"
+                      className="block py-4 hover:opacity-70 transition-opacity duration-200"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-accent font-medium text-lg text-gray-900">
-                          {item.name}
+                        <span className="text-en">
+                          <span className="font-accent font-normal text-lg text-gray-900 tracking-wide">
+                            {item.name}
+                          </span>
                         </span>
-                        <span className="text-sm text-gray-600 font-medium">
+                        <span className="text-ja text-sm text-gray-600 font-medium">
                           {item.sub}
                         </span>
                       </div>
                     </a>
                   </motion.li>
                 ))}
-
-                {/* お問い合わせボタン */}
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 4 * 0.05 }}
-                  className="mt-6"
-                >
-                  <a
-                    href="#contact"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#contact');
-                    }}
-                    className="block py-4 px-6 bg-black text-white text-center font-accent font-medium text-lg rounded-none hover:bg-gray-800 transition-colors duration-200"
-                  >
-                    お問い合わせ
-                  </a>
-                </motion.li>
               </ul>
-            </nav>
+
+              {/* お問い合わせボタン */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+                className="mb-8"
+              >
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick('#contact');
+                  }}
+                  className="block py-4 px-6 bg-black text-white text-center font-medium text-base hover:bg-gray-800 transition-colors duration-200"
+                >
+                  <span>お問い合わせ</span>
+                </a>
+              </motion.div>
+
+              {/* サブメニューリスト（将来的な拡張用） */}
+              <ul className="space-y-0 pt-4 border-t border-gray-100">
+                {/* 必要に応じて追加項目をここに配置 */}
+              </ul>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
