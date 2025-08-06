@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   creator: SITE_CONFIG.creator,
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: '32x32' }
+      { url: `${process.env.NODE_ENV === 'production' ? '/portfolio-main-v3' : ''}/favicon.svg`, type: 'image/svg+xml' },
+      { url: `${process.env.NODE_ENV === 'production' ? '/portfolio-main-v3' : ''}/favicon.ico`, sizes: '32x32' }
     ],
-    apple: { url: '/favicon.svg', type: 'image/svg+xml' }
+    apple: { url: `${process.env.NODE_ENV === 'production' ? '/portfolio-main-v3' : ''}/favicon.svg`, type: 'image/svg+xml' }
   },
   openGraph: {
     type: "website",
