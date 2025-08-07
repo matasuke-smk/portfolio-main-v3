@@ -62,14 +62,14 @@ export const STRENGTHS = [
 export const WORKS = [
   {
     id: '1',
-    title: 'CloudSync Pro',
+    title: 'Midnight Brew',
     category: 'ランディングページ',
-    industry: 'SaaS',
-    period: '2023年12月 (2週間)',
-    technologies: ['Next.js', 'Tailwind CSS', 'Chart.js'],
-    description: 'コンバージョンを重視したSaaSプロダクトのランディングページ',
-    image: '/images/work-1.svg',
-    url: '#',
+    industry: 'カフェ・飲食',
+    period: '2025年8月 (3日)',
+    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'],
+    description: '高級コーヒーブランドの魅力を伝えるエレガントなランディングページ',
+    image: '/images/midnight-brew-thumbnail.jpg',
+    url: 'https://matasuke-smk.github.io/midnight-brew-v2/',
   },
   {
     id: '2',
