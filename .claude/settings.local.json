@@ -8,12 +8,7 @@
       "Bash(npm run dev:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git branch:*)",
-      "WebFetch(domain:matasuke-smk.github.io)",
-      "Bash(git init:*)",
-      "Bash(git remote add:*)",
-      "Bash(git config:*)",
-      "Bash(git pull:*)"
+      "Bash(git branch:*)"
     ],
     "deny": []
   }
