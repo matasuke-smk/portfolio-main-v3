@@ -84,6 +84,17 @@ export const WORKS = [
   },
   {
     id: '3',
+    title: 'Bistro Lumière',
+    category: 'レストランサイト',
+    industry: 'カジュアルフレンチレストラン',
+    period: '2025年9月 (2週間)',
+    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'],
+    description: '「温かみと洗練が出会う場所」をコンセプトとしたフランス料理ビストロのWebサイト',
+    image: '/images/BistroLumière-thumbnail.jpg',
+    url: 'https://matasuke-smk.github.io/BistroLumi-re/',
+  },
+  {
+    id: '4',
     title: 'Creative Designer Portfolio',
     category: 'CPサイト',
     industry: 'デザイナー',
