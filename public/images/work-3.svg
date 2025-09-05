@@ -1,0 +1,44 @@
+<svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="240" fill="url(#gradient3)"/>
+  <defs>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- ECサイトレイアウト -->
+  <!-- ヘッダー -->
+  <rect x="0" y="0" width="400" height="50" fill="white"/>
+  <rect x="20" y="20" width="60" height="10" rx="2" fill="#333" fill-opacity="0.8"/>
+  <rect x="320" y="18" width="15" height="15" rx="2" fill="#333" fill-opacity="0.6"/>
+  <rect x="345" y="18" width="15" height="15" rx="2" fill="#333" fill-opacity="0.6"/>
+  <rect x="370" y="18" width="15" height="15" rx="7.5" fill="#00BFFF" fill-opacity="0.8"/>
+  
+  <!-- 商品グリッド -->
+  <rect x="30" y="70" width="80" height="80" rx="4" fill="white"/>
+  <rect x="35" y="75" width="70" height="50" rx="2" fill="#f8f9fa"/>
+  <rect x="35" y="130" width="40" height="3" rx="1.5" fill="#333" fill-opacity="0.7"/>
+  <rect x="35" y="138" width="25" height="3" rx="1.5" fill="#00BFFF" fill-opacity="0.8"/>
+  
+  <rect x="130" y="70" width="80" height="80" rx="4" fill="white"/>
+  <rect x="135" y="75" width="70" height="50" rx="2" fill="#f8f9fa"/>
+  <rect x="135" y="130" width="40" height="3" rx="1.5" fill="#333" fill-opacity="0.7"/>
+  <rect x="135" y="138" width="25" height="3" rx="1.5" fill="#00BFFF" fill-opacity="0.8"/>
+  
+  <rect x="230" y="70" width="80" height="80" rx="4" fill="white"/>
+  <rect x="235" y="75" width="70" height="50" rx="2" fill="#f8f9fa"/>
+  <rect x="235" y="130" width="40" height="3" rx="1.5" fill="#333" fill-opacity="0.7"/>
+  <rect x="235" y="138" width="25" height="3" rx="1.5" fill="#00BFFF" fill-opacity="0.8"/>
+  
+  <!-- カート -->
+  <rect x="330" y="80" width="50" height="60" rx="4" fill="white" stroke="#00BFFF" stroke-width="1"/>
+  <rect x="335" y="90" width="15" height="15" rx="2" fill="#f8f9fa"/>
+  <rect x="355" y="92" width="20" height="2" rx="1" fill="#333" fill-opacity="0.6"/>
+  <rect x="355" y="98" width="15" height="2" rx="1" fill="#333" fill-opacity="0.4"/>
+  
+  <!-- フッター -->
+  <rect x="0" y="200" width="400" height="40" fill="#333"/>
+  <rect x="20" y="215" width="40" height="2" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="80" y="215" width="40" height="2" rx="1" fill="white" fill-opacity="0.6"/>
+</svg>
